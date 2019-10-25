@@ -2,6 +2,8 @@
 
 #### Day 2 ####
 initiated React app
+installed wsl remote development on Ubuntu to use Visual Studio
+learned React tutorial (components)
 
 #### Day 1 ####
 installed Ubuntu
