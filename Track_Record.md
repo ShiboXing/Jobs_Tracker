@@ -6,4 +6,4 @@ cloned github repository
 invited Yuxin as a collaborator
 learned Agile workflow
 install nodejs & npm
-
+added front_end folder
