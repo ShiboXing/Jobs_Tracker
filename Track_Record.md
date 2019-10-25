@@ -1,5 +1,8 @@
 **Product Owners: Shibo Xing, Yuxin Zhang**
 
+#### Day 2 ####
+initiated React app
+
 #### Day 1 ####
 installed Ubuntu
 cloned github repository
