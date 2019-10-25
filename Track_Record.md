@@ -1,7 +1,9 @@
 **Product Owners: Shibo Xing, Yuxin Zhang**
 
 **** Day 1 ****
-Installed Ubuntu
-Cloned github repository
+installed Ubuntu
+cloned github repository
+invited Yuxin as a collaborator
 learned Agile workflow
 install nodejs & npm
+
