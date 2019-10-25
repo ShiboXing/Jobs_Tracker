@@ -1,6 +1,6 @@
 **Product Owners: Shibo Xing, Yuxin Zhang**
 
-**** Day 1 ****
+#### Day 1 ####
 installed Ubuntu
 cloned github repository
 invited Yuxin as a collaborator
