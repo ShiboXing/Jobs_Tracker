@@ -1,5 +1,9 @@
 **Product Owners: Shibo Xing, Yuxin Zhang**
 
+#### Day 3 ####
+figured out how export, index.js work
+
+
 #### Day 2 ####
 initiated React app
 installed wsl remote development on Ubuntu to use Visual Studio
