@@ -1,8 +1,11 @@
 **Product Owners: Shibo Xing, Yuxin Zhang**
 
+#### Day 4 ####
+practiced CSS center and HTML
+practiced js aynchronous functions, Promises etc.
+
 #### Day 3 ####
 figured out how export, index.js work
-
 
 #### Day 2 ####
 initiated React app
