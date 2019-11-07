@@ -1,10 +1,11 @@
 **Product Owners: Shibo Xing, Yuxin Zhang**
 
 #### Day 5 ####
-added WarClock (ReactComponent)\
+added WarClock, using JSX for inner \<h1\> (ReactComponent)\
 use bind() on tick() function\
 render WarClock with SetInterval (ReactDom.render() rules)\
 use props for WarClock's TimeString\
+
 
 #### Day 4 ####
 practiced CSS center and HTML\
