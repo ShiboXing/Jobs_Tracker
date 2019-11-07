@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import './WarClock.css';
 class WarClock extends React.Component{
 	render(){
 		tick.bind(this)();
