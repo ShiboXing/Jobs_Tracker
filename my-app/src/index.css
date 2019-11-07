@@ -22,8 +22,21 @@ table{
   border-collapse: collapse;
   border-spacing: 5px;
   transform: translate(-50%, -50%);
-
 }
+
+@keyframes changeColor
+{
+  0%   {background: red;}
+  25%  {background: yellow;}
+  50%  {background: blue;}
+  100% {background: green;}
+}
+
+@keyframes spinTD
+{
+  100% {transform: rotate(360);}
+}
+
 
 tr{
   margin-top: -5px;
@@ -42,9 +55,12 @@ td{
   margin-right: -5px;
   text-align: center;
   border: 5px solid transparent;
+  animation: changeColor 5s infinite;
 }
+
 td:hover{
   z-index: 5;
   border-color:red;
   cursor: pointer;
+  animation:spinTD;
 }
