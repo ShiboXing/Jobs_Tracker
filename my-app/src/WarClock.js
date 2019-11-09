@@ -1,35 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './WarClock.css';
+
 class WarClock extends React.Component{
+	constructor(props)
+	{
+		super(props)
+		this.state={
+			dateNow:new Date(),
+			name:'yakuza'
+		}
+	}
+	componentDidMount(){
+		this.IntervalID=setInterval(()=> this.tick(),1000)
+	}
+	componentWillUnmount(){
+		clearInterval(this.IntervalID);
+	}
+	tick(){	
+		this.setState({dateNow:new Date()})
+	}
 	render(){
-		tick.bind(this)();
 		return (
-			<div id='WarClock'>
-				<this.renderTime/>
+			<div id='WarClock' className='WarClock'>
+				<h1 id="TimeString">
+					{this.state.dateNow.toLocaleTimeString()}
+				</h1>
 			</div>
 		);
 	}
-	renderTime(){
-		return(
-			<h1 id="TimeString">
-				{new Date().toLocaleTimeString()}
-			</h1>
-		);
-	}
 }
 
-function tick(){
-	setInterval(() => {
-		ReactDOM.render(this.renderTime(),document.getElementById('WarClock'))
-	}, 1000);
-}
-
-
-
-
-
-
-
-export default WarClock;
+export default WarClock
 
