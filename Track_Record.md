@@ -1,5 +1,10 @@
 **Product Owners: Shibo Xing, Yuxin Zhang**
 
+###### todo: center the inline-block DOMs
+
+#### Day 7 ####
+export multiple React Components in one class\
+
 #### Day 6 ####
 Convert tick() to a class function for WarClock\
 Use constructor and mount functions of a class(Life Cycle)\

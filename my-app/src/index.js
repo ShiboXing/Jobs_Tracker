@@ -1,18 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import WarClock from './WarClock';
+import WarClockSection from './War';
+import {Nan} from './War'
 import * as serviceWorker from './serviceWorker';
 
 
 class MainBody extends React.Component{
     render(){
         return (
-            <div>
-                <header>
-                    <WarClock></WarClock>
-                </header>
-                <Board></Board>
+            
+            <div className="container">
+                <WarClockSection></WarClockSection>
+                <main className='horizontalCenter'>
+                    <div className='parallel'>
+                        <Nan></Nan>
+                    </div>
+                    <div className='parallel'>
+                        <Board ></Board>
+                    </div>
+                </main>
             </div>
         );
     }
@@ -30,7 +37,7 @@ class Board extends React.Component{
 
 class Square extends React.Component{ 
     
-    render() {
+    render(i) {
         return(
             <table>
                 <tbody>

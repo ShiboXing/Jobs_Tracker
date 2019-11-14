@@ -8,20 +8,30 @@ body {
   
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-
-table{
+.parallel{
   display:inline-block;
+  background: purple;
+}
+
+
+.horizontalCenter{
+  background: yellow;
   position: absolute;
-  top:50%;
-  left:50%;
+  display:inline-block;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+table{
+  display:inline;
+  position: relative;
+  margin-left: 10px;
   border-collapse: collapse;
-  border-spacing: 5px;
-  transform: translate(-50%, -50%);
+  bottom:50%;
 }
 
 @keyframes changeColor
@@ -52,7 +62,6 @@ td{
   vertical-align: middle;
   font-size: 15px;
   background: yellow;
-  margin-right: -5px;
   text-align: center;
   border: 5px solid transparent;
   animation: changeColor 5s infinite;

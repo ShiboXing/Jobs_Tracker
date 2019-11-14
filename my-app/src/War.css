@@ -21,13 +21,16 @@
   color: #09d3ac;
 }
 
-.WarClock{
+.WarObject{
    display:inline;
-   position: absolute;
+   position: relative;
    text-align: center;
-   left:50%;
-   transform: translate(-50%,0);
+}
 
+.verticalCenter{
+  display:inline-block;
+  bottom: 50%;
+  transform: translateY(50%);
 }
 
 
