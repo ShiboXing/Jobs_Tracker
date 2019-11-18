@@ -13,7 +13,7 @@ class WarClock extends React.Component{
 	}
 	componentDidMount(){
 		this.IntervalID=setInterval(()=> this.tick(),1000)
-		console.log(this.IntervalID)
+		//console.log(this.IntervalID)
 		
 	}
 	componentWillUnmount(){
@@ -34,14 +34,35 @@ class WarClock extends React.Component{
 }
 
 class Nan extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={
+			handleClick:function(domId, e){
+				e.preventDefault()  //click won't open a new page
+				console.log('Nan '+domId)
+
+			}
+		}
+	}
+	
+	addNan(e){
+		
+	}
 	render(){
 		return(
 			<h1 className='WarObject verticalCenter'>
-				我太<button>南</button>了
+				我太
+				<button id='nan_button' onClick={buttonBlink}>南</button>
+				<a id='NanLink' href='https://baidu.com' onClick={this.state.handleClick.bind(this,'NanLink')}>南</a>
+				了
 			</h1>
+
 		)
+		
+		
 	}
 }
+
 
 function WarClockSection(){
 	return (
@@ -51,6 +72,11 @@ function WarClockSection(){
 			<WarClock></WarClock>
 		</div>
 	)
+}
+
+
+function buttonBlink(){
+	
 }
 
 

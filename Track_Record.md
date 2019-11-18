@@ -2,8 +2,12 @@
 
 ###### todo: use \<li\> to center the inline-block DOMs
 
+#### Day 8 ####
+added event handler for Nan link\
+used bind to prepend arguments
+
 #### Day 7 ####
-export multiple React Components in one class\
+export multiple React Components in one class
 
 #### Day 6 ####
 Convert tick() to a class function for WarClock\
