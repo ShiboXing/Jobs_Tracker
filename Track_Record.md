@@ -1,4 +1,3 @@
-**Product Owners: Shibo Xing, Yuxin Zhang**
 
 ###### todo: use \<li\> to center the inline-block DOMs
 
