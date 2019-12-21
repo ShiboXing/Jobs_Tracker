@@ -8,13 +8,14 @@
 } 
 
 .LeftPartSecond {
-    display: block;
-    width: 60%;
+    display: inline-block;
+    width: 65.9%;
     border: 5px solid green;
 }
 
 .RightPartFirst {
-    display: inline;
+    display: inline-block;
+    width: 33%;
     float: right;
     border: 5px solid red;
 }

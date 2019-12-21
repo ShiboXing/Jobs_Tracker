@@ -8,9 +8,14 @@ class Sidebar extends React.Component {
                 <h1>
                     test test test
                 </h1>
+                
             </div>
         )
     }
+}
+
+class SidebarEntry extends React.Component {
+    
 }
 
 export default Sidebar
