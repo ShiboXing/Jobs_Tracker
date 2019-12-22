@@ -1,21 +1,47 @@
 ﻿
+html, body {
+    background: black
+}
+
 * {
     font-family: 'Alata', sans-serif;
 }
+
+#MainTitle {
+    
+    font-size: xx-large;
+    text-align: center;
+}
+
 
 .top_heading {
     font-family: 'Wallpoet', cursive;
 } 
 
+.BottomPartSecond {
+    position: fixed;
+    left: 50%;
+    top: 33%;
+    transform: translate(-50%, -50%);
+}
+
 .LeftPartSecond {
     display: inline-block;
+    float: left;
+    padding: 10px;
     width: 65.9%;
     border: 5px solid green;
 }
 
 .RightPartFirst {
     display: inline-block;
-    width: 33%;
     float: right;
+    text-align: right;
+    padding: 10px;
+    width: 30%;
     border: 5px solid red;
+}
+
+.background {
+    color: white;
 }
