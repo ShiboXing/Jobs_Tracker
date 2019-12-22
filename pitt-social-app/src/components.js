@@ -39,9 +39,13 @@ class SidebarItem extends React.Component {
 
 class Login extends React.Component {
     
+    constructor(props) {
+        super(props)
+        this.state = {className: props.className}
+    }
     render() {
         return (
-            <div>
+            <div style={{border: '5px solid yellow'}} className={this.state.className}>
                 <InputItem title='username'></InputItem>
                 <InputItem title='password'></InputItem>
             </div>
@@ -57,8 +61,9 @@ class InputItem extends React.Component {
 
     render() {
         return (
-            <div>
-                <h3>{this.state.title}</h3>
+            <div  className='InputItem' >
+                <h3 className='InputTitle'>{this.state.title}</h3>
+                <input type='text'></input>
             </div>
         )
     }

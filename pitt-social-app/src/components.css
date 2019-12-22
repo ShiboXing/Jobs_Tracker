@@ -11,5 +11,16 @@ ul {
     cursor: pointer;
 }
 
+.InputItem {
+    text-align: center;
+}
+.InputTitle {
+    display: inline-block;
+    padding: 5px 5px;
+}
+
+
+
+
 
 

@@ -26,15 +26,15 @@ class MainBody extends React.Component {
                     </div>
 
                     <div className='RightPartFirst'>
-                        <Sidebar/>
+                        <Sidebar />
                     </div>
                 </div>
-                <div className='BottomPartSecond' style={{border: '5px solid red'}}>
-                    <div id='MainTitle' style={{border: '5px solid blue'}}>
-                        <h1 className='top_heading'>PITT &nbsp; SOCIAL</h1>
+                <div className='fixedCenter' style={{border: '5px dashed red'}}>
+                    <div id='MainTitle' style={{border: '5px solid green'}}>
+                        <h1 className='top_heading verticalCenter' style={{border: '5px dashed red'}}>PITT&nbsp;SOCIAL<sup className='top_heading'>2</sup></h1>
                     </div>
-                    <div>
-                        <Login/>
+                    <div id='Login' style={{border: '5px solid blue'}}>
+                        <Login className="verticalCenter"/>
                     </div>
                 </div>
                 
