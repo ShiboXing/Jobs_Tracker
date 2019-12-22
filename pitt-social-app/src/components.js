@@ -48,6 +48,9 @@ class Login extends React.Component {
             <div style={{border: '5px solid yellow'}} className={this.state.className}>
                 <InputItem title='username'></InputItem>
                 <InputItem title='password'></InputItem>
+                <div className='LogonButton'>
+                    <h3>Log on</h3>
+                </div>
             </div>
         )
     }
