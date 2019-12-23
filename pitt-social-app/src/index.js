@@ -53,22 +53,22 @@ class Logo extends React.Component {
    
 }
 
-// const path = require("path")
-// const fs = require("fs")
-// console.log(path)
-// console.log(fs)
+const path = require("path")
+const fs = require('fs-readdir');
+console.log(path)
+console.log(fs)
  
-// const directoryPath = __dirname 
+const directoryPath = __dirname 
  
-// fs.readdir(directoryPath, (err, files) => {
-//   if (err) {
-//     console.log("Error getting directory information.")
-//   } else {
-//     files.forEach(function(file) {
-//       console.log(file)
-//     })
-//   }
-// })
+fs(directoryPath, (err, files) => {
+  if (err) {
+    console.log("Error getting directory information.")
+  } else {
+    files.forEach(function(file) {
+      console.log(file)
+    })
+  }
+})
 
 ReactDOM.render(<MainBody />, document.getElementById('root'))
 
