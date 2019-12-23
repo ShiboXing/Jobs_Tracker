@@ -1,0 +1,37 @@
+
+ul {
+    padding: 0;
+}
+
+.MenuItem {
+    background-color: darkcyan;
+    color: black;
+    padding: 2px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.InputItem {
+    text-align: center;
+}
+.InputTitle {
+    display: inline-block;
+    padding: 5px 5px;
+}
+
+.LogonButton {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+    margin-top: 10px;
+    text-align: center;
+    width: 50%;
+    background: lightskyblue;
+    color: white;
+}
+
+
+
+
+
+

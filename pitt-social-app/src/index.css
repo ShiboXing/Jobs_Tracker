@@ -1,21 +1,70 @@
 ﻿
+html, body {
+    background: black
+}
+
+div {
+    padding: 0px;
+}
+
+h1, h3{
+    margin: 0;
+}
+
 * {
     font-family: 'Alata', sans-serif;
+}
+
+#MainTitle {   
+    position: relative;
+    height: 30%;
+    font-size: xx-large;
+    text-align: center;
+    
+}
+
+#Login {
+    position: relative;
+    height: 65%;
 }
 
 .top_heading {
     font-family: 'Wallpoet', cursive;
 } 
 
+.verticalCenter {
+    position: relative;
+    top: 50%;
+    transform: translate(0%, -50%);
+     
+}
+
+
+.fixedCenter {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    height: 33%;
+    transform: translate(-50%, -50%);
+}
+
 .LeftPartSecond {
     display: inline-block;
+    float: left;
+    padding: 10px;
     width: 65.9%;
     border: 5px solid green;
 }
 
 .RightPartFirst {
     display: inline-block;
-    width: 33%;
     float: right;
+    text-align: right;
+    padding: 10px;
+    width: 30%;
     border: 5px solid red;
+}
+
+.background {
+    color: white;
 }
