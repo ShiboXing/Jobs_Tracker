@@ -45,12 +45,13 @@ class Login extends React.Component {
     }
     render() {
         return (
-            <div style={{border: '5px solid yellow'}} className={this.state.className}>
+            <div className={this.state.className}>
                 <InputItem title='username'></InputItem>
                 <InputItem title='password'></InputItem>
-                <div className='LogonButton'>
-                    <h3>Log on</h3>
-                </div>
+                <div style={{'marginTop':'3vh'}}>
+                    <ReactButton background='CornflowerBlue' color='white' title='Log on' className='LogonButton'/>
+                    <ReactButton background='Olive' color='white' title='Guest log on' className='LogonButton'/> 
+                </div>         
             </div>
         )
     }
@@ -67,6 +68,32 @@ class InputItem extends React.Component {
             <div  className='InputItem' >
                 <h3 className='InputTitle'>{this.state.title}</h3>
                 <input type='text'></input>
+            </div>
+        )
+    }
+}
+
+class ReactButton extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            background: props.background,
+            color: props.color,
+            title: props.title,
+            className: props.className
+        }
+
+    }
+
+    render() {
+        return (
+            <div style={{
+                    color: this.state.color, 
+                    background: this.state.background,
+                    'paddingBottom':'0.5vh',
+                    'margin': '1vh'
+                }} className={this.state.className}>
+                <h5>{this.state.title}</h5>
             </div>
         )
     }
