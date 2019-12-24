@@ -1,10 +1,14 @@
-﻿import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import {Sidebar, Login} from './components'
+﻿const React = require('react')
+const ReactDOM = require('react-dom')
+require('./index.css')
+const Sidebar = require('./components').Sidebar
+const Login = require('./components').Login
+// import {Sidebar, Login} from './components'
 
 //import * as serviceWorker from './serviceWorker'
 //ServiceWorker deprecated ???
+
+// listReactFiles(__dirname).then(files => console.log(files))
 
 class MainBody extends React.Component {
     render() {
@@ -35,8 +39,8 @@ class MainBody extends React.Component {
                     <div id='Login' >
                         <Login className="verticalCenter"/>
                     </div>
-                </div>
-                <Logo/>                
+                    <Logo/>  
+                </div>         
             </div>
         )
     }    
@@ -45,32 +49,17 @@ class MainBody extends React.Component {
 class Logo extends React.Component {
     render() {
         return (
-            <div className='fixedCenter'>
-                <img src='pitt_logo.png' style={{height:'10vh', width:'10vw'}} alt=''/>
-            </div>
+           
+            <img className='fixedCenter logo' src={require('../res/pitt_logo.png')} alt=''/>
+           
         )
     }
    
 }
 
-const path = require("path")
-const fs = require('fs-readdir');
-console.log(path)
-console.log(fs)
- 
-const directoryPath = __dirname 
- 
-fs(directoryPath, (err, files) => {
-  if (err) {
-    console.log("Error getting directory information.")
-  } else {
-    files.forEach(function(file) {
-      console.log(file)
-    })
-  }
-})
 
 ReactDOM.render(<MainBody />, document.getElementById('root'))
+console.log(process.cwd())
 
 
 //serviceWorker.unregister()

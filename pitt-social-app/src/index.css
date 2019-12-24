@@ -47,6 +47,16 @@ h1, h2, h3, h5{
     transform: translate(-50%, -50%);
 }
 
+.logo {
+    position: absolute;
+    z-index: -1;
+    height: 150%;
+    width: 150%;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    opacity: 13%;
+}
+
 .LeftPartSecond {
     position: relative;
     float:left;
