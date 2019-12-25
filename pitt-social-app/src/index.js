@@ -36,10 +36,10 @@ class MainBody extends React.Component {
                     <div id='MainTitle' >
                         <h1 className='top_heading verticalCenter'>PITT&nbsp;SOCIAL<sup className='top_heading'>2</sup></h1>
                     </div>
-                    <div id='Login' >
+                    <div id='Login'>
                         <Login className="verticalCenter"/>
                     </div>
-                    <Logo/>  
+                    <Logo />  
                 </div>         
             </div>
         )
@@ -49,9 +49,9 @@ class MainBody extends React.Component {
 class Logo extends React.Component {
     render() {
         return (
-           
-            <img className='fixedCenter logo' src={require('../res/pitt_logo.png')} alt=''/>
-           
+            <div className='logo' >
+                <img className='fillParent StopRotate' src={require('../res/pitt_logo.png')} alt=''/>
+            </div>
         )
     }
    
