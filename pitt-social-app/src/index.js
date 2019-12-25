@@ -59,7 +59,5 @@ class Logo extends React.Component {
 
 
 ReactDOM.render(<MainBody />, document.getElementById('root'))
-console.log(process.cwd())
-
-
+// console.log(process.cwd())
 //serviceWorker.unregister()

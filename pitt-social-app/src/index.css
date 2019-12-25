@@ -13,18 +13,7 @@ h1, h2, h3, h5{
 * {
     font-family: 'Alata', sans-serif;
     position: relative;
-}
-
-#MainTitle {   
-    position: relative;
-    height: 30%;
-    font-size: xx-large;
-    text-align: center;
-}
-
-#Login {
-    position: relative;
-    height: 65%;
+    cursor: default;
 }
 
 .top_heading {
@@ -44,7 +33,7 @@ h1, h2, h3, h5{
     top: 50%;
     height: 55%;
     transform: translate(-50%, -50%);
-    padding: 10%;
+    padding: 10% 5% 10% 5%;
 }
 
 .fillParent {
@@ -63,7 +52,7 @@ h1, h2, h3, h5{
     transform: translate(-50%, -50%);
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
-    opacity: 13%;
+    opacity: 20%;
 }
 
 .LeftPartSecond {
@@ -98,4 +87,16 @@ h1, h2, h3, h5{
     0% { transform: rotateY(0deg); }
     50% { transform: rotateY(360deg); }
     100% { transform: rotateY(360deg); }
+}
+
+#MainTitle {   
+    position: relative;
+    height: 30%;
+    font-size: xx-large;
+    text-align: center;
+}
+
+#Login {
+    position: relative;
+    height: 65%;
 }
