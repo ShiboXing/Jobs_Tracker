@@ -30,7 +30,7 @@ class SidebarItem extends React.Component {
     }
     render() {
         return (
-            <div className='MenuItem'>
+            <div className='MenuItem' >
                 <h3>{this.state.title}</h3>
             </div>
         )
@@ -90,7 +90,7 @@ class ReactButton extends React.Component {
             <div style={{
                     color: this.state.color, 
                     background: this.state.background,
-                    'paddingBottom':'0.5vh',
+                    'paddingBottom': '0.5vh',
                     'margin': '1vh'
                 }} className={this.state.className}>
                 <h5>{this.state.title}</h5>
