@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.css'
-import './components.css'
+import './mainComponents.css'
 
 class Sidebar extends React.Component {
     render() {
@@ -50,11 +50,16 @@ class Login extends React.Component {
                 <InputItem title='password'></InputItem>
                 <div style={{'marginTop':'3vh'}}>
                     <ReactButton background='CornflowerBlue' color='white' title='Log on' className='LogonButton'/>
-                    <ReactButton background='Olive' color='white' title='Guest log on' className='LogonButton'/> 
+                    <ReactButton background='Olive' color='white' title='Guest log on' className='LogonButton' 
+                        onClick={() => {
+                            window.location.href = './MainPage'
+                        }}
+                    /> 
                 </div>         
             </div>
         )
     }
+    
 }
 
 class InputItem extends React.Component {
@@ -80,14 +85,16 @@ class ReactButton extends React.Component {
             background: props.background,
             color: props.color,
             title: props.title,
-            className: props.className
+            className: props.className,
+            onClick: props.onClick
         }
 
     }
 
     render() {
         return (
-            <div style={{
+            <div onClick={this.state.onClick} 
+                style={{
                     color: this.state.color, 
                     background: this.state.background,
                     'paddingBottom': '0.5vh',

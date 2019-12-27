@@ -3,8 +3,8 @@ const ReactDOM = require('react-dom')
 require('./index.css')
 const Sidebar = require('./components').Sidebar
 const Login = require('./components').Login
-// import {Sidebar, Login} from './components'
 
+//import {Sidebar, Login} from './components'
 //import * as serviceWorker from './serviceWorker'
 //ServiceWorker deprecated ???
 
@@ -39,7 +39,7 @@ class MainBody extends React.Component {
                     <div id='Login'>
                         <Login className="verticalCenter"/>
                     </div>
-                    <Logo src={require('../res/pitt_logo.png')} width='60%' />  
+                    <Logo src={require('../res/pitt_logo.png')} width='60%'  />  
                 </div>         
             </div>
         )
@@ -52,11 +52,16 @@ class Logo extends React.Component {
         this.state = {
             width: props.width,
             height: props.height,
-            src: props.src
+            src: props.src,
+            aspectRatio: ''
         }
+        
+    }
+    /*useless -> I don't know how to maintain aspect ratio using padding-top */
+    componentDidMount() {
         let img = new Image()
         img.src = this.state.src;
-        this.state.aspectRatio = ((parseFloat(img.height) / parseFloat(img.width)) * 100) + '%'
+        this.setState({ aspectRatio: ((parseFloat(img.height) / parseFloat(img.width)) * 100) + '%'})
         console.log(this.state.aspectRatio)
     }
 

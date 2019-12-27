@@ -2,7 +2,7 @@
     background: black
 }
 
-div, h4, h5 {
+div, button, h4, h5 {
     padding: 0px;
 }
 
@@ -14,6 +14,7 @@ h1, h2, h3, h5, img, div{
 * {
     font-family: 'Alata', sans-serif;
     position: relative;
+    user-select: none;
 }
 
 .absolute {
