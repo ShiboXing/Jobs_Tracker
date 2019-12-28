@@ -50,13 +50,12 @@ app.get('/', function(req, res) {
 	res.send('Welcome to Node Twitter')
 })
 
-app.post('/send', bodyParser.urlencoded(), function(req,res) {
+app.post('/send', bodyParser.urlencoded({ extended: true }), function(req,res) {
 	console.log(req.body)
 	if (req.body && req.body.tweet) {
 		tweets.push(req.body.tweet)
 		res.send({status: 'ok', message:'Tweet received'})
 	} else {
-		//no tweet?
 		res.send({status:'nok',message:'NO tweet received'})
 	}
 })
