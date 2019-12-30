@@ -38,28 +38,69 @@
 // chatServer.listen(9000)
 
 
-/* using express */
-var express = require('express')
-var bodyParser = require('body-parser')
-var app = express()
+// /* using express */
+// var express = require('express')
+// var bodyParser = require('body-parser')
+// var app = express()
 
-app.listen(8000)
-var tweets = []
+// app.listen(8000)
+// var tweets = []
 
-app.get('/', function(req, res) {
-	res.send('Welcome to Node Twitter')
-})
+// app.get('/', function(req, res) {
+// 	res.send('Welcome to Node Twitter')
+// })
 
-app.post('/send', bodyParser.urlencoded({ extended: true }), function(req,res) {
-	console.log(req.body)
-	if (req.body && req.body.tweet) {
-		tweets.push(req.body.tweet)
-		res.send({status: 'ok', message:'Tweet received'})
-	} else {
-		res.send({status:'nok',message:'NO tweet received'})
-	}
-})
+// app.post('/send', bodyParser.urlencoded({ extended: true }), function(req,res) {
+// 	console.log(req.body)
+// 	if (req.body && req.body.tweet) {
+// 		tweets.push(req.body.tweet)
+// 		res.send({status: 'ok', message:'Tweet received'})
+// 	} else {
+// 		res.send({status:'nok',message:'NO tweet received'})
+// 	}
+// })
 
-app.get('/tweets', function(req,res) {
-	res.send(tweets)
-})
+// app.get('/tweets', function(req,res) {
+// 	res.send(tweets)
+// })
+
+
+// //event loop experiment
+// EE = require('events').EventEmitter;
+// ee = new EE();
+// die = false;
+
+// ee.on('die', function() {
+//  die = true;
+// });
+
+// setTimeout(function() {
+// 	console.log('emit!')
+//  ee.emit('die');
+// }, 100);
+
+// while(!die) {
+// 	console.log('ashiba!')
+// }
+
+// console.log('done');
+
+// //closure sanity check
+// var -> global window object
+// for (var i = 0;i < 10;i++) {
+// 	// setTimeout(() => {
+// 	// 	console.log(i)
+// 	// }, 100);
+	
+// 	(function (j) {
+// 		console.log(j)
+// 	})(i)
+// 	var name = 'whoami'
+
+// 	setTimeout(() => {
+// 		console.log(i)
+// 	},1000)
+
+// }
+
+// console.log(name)
