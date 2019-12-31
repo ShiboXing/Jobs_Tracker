@@ -38,12 +38,12 @@ const Login = require('./components').Login
 function helloGet(url) {
     fetch(url, {
         method: 'GET',
-        mode:'no-cors',
+        mode:'cors',
         header: {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
     }).then((result) => {
-        console.log('Success:', result);
+        console.log('Success:', result.json());
     }).catch((error) => {
         console.error('Error:', error);
     });
@@ -55,7 +55,7 @@ function helloGet(url) {
 
 class MainBody extends React.Component {
     componentDidMount() {
-        helloGet('/hello')
+        helloGet('http://localhost:4000/hello')
         // .then((data) => {
         //     console.log(data)
         // })

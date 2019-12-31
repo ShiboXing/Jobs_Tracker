@@ -1,13 +1,18 @@
 
-var express = require('express')
-
+const express = require('express')
+const cors = require('cors')
 var app = express()
+
+app.use(cors())
+app.use(express.json())
+
 app.listen(4000)
+
 
 app.get('/hello', function(req, res) {
 	console.log('received GET on /hello')
 	//res.send({'msg':'i Love you'})
-	res.json({'msg':'i love you'})
+	res.json('i love you')
 })
 
 
