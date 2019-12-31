@@ -10,7 +10,64 @@ const Login = require('./components').Login
 
 // listReactFiles(__dirname).then(files => console.log(files))
 
+/* violate cross-origin policy */
+
+// var helloOpts= {
+//     host: 'localhost',
+//     port: 4000,
+//     path: '/',
+//     method: 'GET',
+//     headers: {'content-type':'application/x-www-form-urlencoded'}
+// }
+
+// var helloGet= http.request(helloOpts, function(res) {
+//     res.setEncoding('utf8')
+//     res.on('data', function(d) {
+//         alert(d)
+//     })
+    
+// })
+// helloGet.on('error', (err) => {
+//     console.log('error on GET')
+// });
+
+// helloGet.write('')
+// helloGet.end()
+
+
+async function helloGet(url) {
+    const response = await fetch(url, {
+        
+            method: 'GET', // *GET, POST, PUT, DELETE, etc.
+            mode: 'no-cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            headers: {
+            //   'Content-Type': 'application/json'
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            credentials: 'omit'
+            //redirect: 'follow', // manual, *follow, error
+            //referrerPolicy: 'no-referrer' // no-referrer, *client
+            //body: JSON.stringify(data)
+    }).then((result) => {
+        console.log('Success:', result);
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    return response
+}
+
+
+
+
 class MainBody extends React.Component {
+    componentDidMount() {
+        helloGet('http://127.0.0.1:4000/')
+        // .then((data) => {
+        //     console.log(data)
+        // })
+    }
+
     render() {
         return (
             <div className='background'>

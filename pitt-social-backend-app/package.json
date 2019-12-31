@@ -1,0 +1,16 @@
+{
+  "name": "pitt-social-backend-app",
+  "version": "1.0.0",
+  "description": "the backend of pitt-social",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "author": "Shibo Xing",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "react-fetch": "0.0.9"
+  }
+}

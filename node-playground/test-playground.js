@@ -1,5 +1,4 @@
-var http = require('http'),
-assert = require('assert')
+var http = require('http'), assert = require('assert')
 var opts = {
     host: 'localhost',
     port: 8000,
