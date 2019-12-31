@@ -85,7 +85,7 @@
 
 // console.log('done');
 
-// //closure sanity check
+// closure sanity check
 // var -> global window object
 // for (var i = 0;i < 10;i++) {
 // 	// setTimeout(() => {
@@ -104,3 +104,10 @@
 // }
 
 // console.log(name)
+
+//whichever server starts first will listen to the port
+http = require('http')
+http.Server(function(req, res) {
+    res.writeHead(200);
+    res.end(" disgusting hello world\n");
+}).listen(8000);
