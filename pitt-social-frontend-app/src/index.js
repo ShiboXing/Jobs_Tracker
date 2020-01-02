@@ -1,8 +1,9 @@
 ﻿const React = require('react')
 const ReactDOM = require('react-dom')
-require('./index.css')
 const Sidebar = require('./components').Sidebar
 const Login = require('./components').Login
+const http = require('http')
+require('./index.css')
 
 //import {Sidebar, Login} from './components'
 //import * as serviceWorker from './serviceWorker'
@@ -43,19 +44,48 @@ function helloGet(url) {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
     }).then((result) => {
-        console.log('Success:', result.json());
+        return result.json() //returns a Promise
+    }).then((result) => { // must use then to have the Promise resolved, otherwise pending
+        console.log(result)
     }).catch((error) => {
         console.error('Error:', error);
-    });
-
+    })
 }
 
 
+function httpHelloGet(url, path) {
+    let opts = {
+        host: url,
+        port: 4000,
+        path: path,
+        method:'GET',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Access-Control-Allow-Headers':'Content-Type',
+            'Access-Control-Allow-Methods':'GET',
+            'Access-Control-Allow-Origin':'http://localhost:3000/'
+        }
+    }
+    let req = http.request(opts, function(res) {
+        res.setEncoding('utf8')       
+        console.log('res:',res)
+
+        res.on('data', function(data) {
+            console.log('data: ',data)
+        })
+    })
+
+    req.end()
+
+}
+ 
 
 
 class MainBody extends React.Component {
     componentDidMount() {
-        helloGet('http://localhost:4000/hello')
+        //helloGet('http://localhost:4000/hello')
+        httpHelloGet('localhost','/httpHello')
+        //helloGet('http://localhost','/httpHello')
         // .then((data) => {
         //     console.log(data)
         // })
