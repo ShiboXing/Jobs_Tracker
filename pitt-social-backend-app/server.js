@@ -4,6 +4,7 @@ const express = require('express')
 const http = require('http')
 const cors = require('cors')
 var app = express()
+var profileRouter = require('./routes/profile')
 
 app.use(cors())
 app.use(express.json())
@@ -20,7 +21,9 @@ app.get('/hello', function(req, res) {
 	res.send({'msg':'i love you'})
 })
 
-console.log('Sergeger running at http://127.0.0.1:4000/');
+app.use('/profile', profileRouter)
+
+console.log('Server running at http://127.0.0.1:4000/');
 
 
 // //using http server 
