@@ -2,7 +2,7 @@
 const ReactDOM = require('react-dom')
 const Sidebar = require('./components').Sidebar
 const Login = require('./components').Login
-const http = require('http')
+// const http = require('http')
 require('./index.css')
 
 //import {Sidebar, Login} from './components'
@@ -53,38 +53,37 @@ function helloGet(url) {
 }
 
 
-function httpHelloGet(url, path) {
-    let opts = {
-        host: url,
-        port: 4000,
-        path: path,
-        method:'GET',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Headers':'Content-Type',
-            'Access-Control-Allow-Methods':'GET',
-            'Access-Control-Allow-Origin':'http://localhost:3000/'
-        }
-    }
-    let req = http.request(opts, function(res) {
-        res.setEncoding('utf8')       
-        console.log('res:',res)
+// function httpHelloGet(url, path) {
+//     let opts = {
+//         host: url,
+//         port: 4000,
+//         path: path,
+//         method:'GET',
+//         headers: {
+//             'Content-Type': 'application/x-www-form-urlencoded',
+//             'Access-Control-Allow-Headers':'Content-Type',
+//             'Access-Control-Allow-Methods':'GET',
+//             'Access-Control-Allow-Origin':'http://localhost:3000/'
+//         }
+//     }
+//     let req = http.request(opts, function(res) {
+//         res.setEncoding('utf8')       
+//         console.log('res:',res)
 
-        res.on('data', function(data) {
-            console.log('data: ',data)
-        })
-    })
+//         res.on('data', function(data) {
+//             console.log('data: ',data)
+//         })
+//     })
 
-    req.end()
-
-}
+//     req.end()
+// }
  
 
 
 class MainBody extends React.Component {
     componentDidMount() {
-        //helloGet('http://localhost:4000/hello')
-        httpHelloGet('localhost','/httpHello')
+        helloGet('http://localhost:4000/hello')
+        //httpHelloGet('localhost','/hello')
         //helloGet('http://localhost','/httpHello')
         // .then((data) => {
         //     console.log(data)
