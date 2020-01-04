@@ -560,16 +560,16 @@ $$ language plpgsql;
 
 --logout
 drop procedure if exists logout(thisuserid int, loginTime timestamp);
-create or replace procedure logout(thisuserid int, loginTime timestamp) as
-$$
-begin
-    update profile set lastlogin = now() where userid = thisuserid;
-end;
-$$ language plpgsql;
+create procedure logout(thisuserid int, loginTime timestamp) as
+	$$
+	begin
+	    update profile set lastlogin = now() where userid = thisuserid;
+	end;
+	$$ language plpgsql;
 
 --dropuser
 drop procedure if exists dropuser(thisuserid int);
-create or replace procedure dropuser(thisuserid int) as
+create procedure dropuser(thisuserid int) as
     $$
     begin
 --         delete from "groupmember" where userid = thisuserid;

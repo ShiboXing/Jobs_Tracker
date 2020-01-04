@@ -1,3 +1,6 @@
+
+set search_path to pitt_social;
+
 insert into profile (name, email, password, date_of_birth, lastlogin) values ('Shenoda', 'shg@pitt.edu', 'shpwd', '1997-10-13', '2019-10-09 15:00:00');
 insert into profile (name, email, password, date_of_birth, lastlogin) values ('Lory', 'lra@pitt.edu', 'lpwd', '1996-03-08', '2019-10-09 16:00:00');
 insert into profile (name, email, password, date_of_birth, lastlogin) values ('Peter', 'pdj@pitt.edu', 'ppwd', '1994-01-09', '2019-10-10 15:00:00');
