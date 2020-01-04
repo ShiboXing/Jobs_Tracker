@@ -13,8 +13,10 @@ var profileRouter = require('./routes/profile')
 // }
 
 // app.use(cors(corsOption))
+
 app.use(cors())
 app.use(express.json())
+
 // app.use(function(req,res) { //disallowing any middlewares beyond, sequence of middle wares matters
 // 	console.log('the first middleware defined')
 // 	res.json('i love you from the first middleware')

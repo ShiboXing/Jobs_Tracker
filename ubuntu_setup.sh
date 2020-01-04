@@ -9,3 +9,4 @@ psql -d pitt-social -f data-source/trigger.sql
 pg_lsclusters #check out the port of the database
 
 
+
