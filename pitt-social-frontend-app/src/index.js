@@ -1,7 +1,9 @@
 ﻿const React = require('react')
 const ReactDOM = require('react-dom')
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 const Sidebar = require('./components').Sidebar
 const Login = require('./components').Login
+const MainPage = require('./MainPage/index').MainBody
 // const http = require('http')
 require('./index.css')
 
@@ -36,6 +38,8 @@ require('./index.css')
 // helloGet.end()
 
 
+
+
 function helloGet(url) {
     fetch(url, {
         method: 'GET',
@@ -51,6 +55,9 @@ function helloGet(url) {
         console.error('Error:', error);
     })
 }
+
+
+
 
 
 // function httpHelloGet(url, path) {
@@ -93,35 +100,51 @@ class MainBody extends React.Component {
 
     render() {
         return (
-            <div className='background'>
-                <link href='https://fonts.googleapis.com/css?family=Alata|Wallpoet&display=swap' rel='stylesheet'/> 
-                <div>
-                    <div className='LeftPartSecond'>
-                        <h3> Welcome to Pitt Social<sup>2</sup> , a platform for pitt affiliated people to social </h3>
-                        <hr />
-                        <h3> feel free to social, if you are a &nbsp;
-                            <abbr title='pitt affiliated person'>PAP</abbr>
-                        </h3>
-                        <h1 className='top_heading'> How to social </h1>
-                        <p> Add friends, add groups -> Send messages <br/>
-                            You come, you see -> you conquer
-                        </p>
-                    </div>
+            <Router>
 
-                    <div className='RightPartFirst'>
-                        <Sidebar />
-                    </div>
-                </div>
-                <div className='fixedCenter' style={{height: '65%'}} >
-                    <div id='MainTitle' >
-                        <h1 className='glitch top_heading verticalCenter'>PITT&nbsp;SOCIAL<sup className='top_heading'>2</sup></h1>
-                    </div> 
-                    <div id='Login'>
-                        <Login className="verticalCenter"/>
-                    </div>
-                    <Logo src={require('../res/pitt_logo.png')} width='60%'  />  
-                </div>         
-            </div>
+                <Route exact path='/' render={({match, history }) => {
+                            return <div className='background'>
+                                <link href='https://fonts.googleapis.com/css?family=Alata|Wallpoet&display=swap' rel='stylesheet'/> 
+                                <div>
+                                    <div className='LeftPartSecond'>
+                                        <h3> Welcome to Pitt Social<sup>2</sup> , a platform for pitt affiliated people to social </h3>
+                                        <hr />
+                                        <h3> feel free to social, if you are a &nbsp;
+                                            <abbr title='pitt affiliated person'>PAP</abbr>
+                                        </h3>
+                                        <h1 className='top_heading'> How to social </h1>
+                                        <p> Add friends, add groups -> Send messages <br/>
+                                            You come, you see -> you conquer
+                                        </p>
+                                    </div>
+            
+                                    <div className='RightPartFirst'>
+                                        <Sidebar />
+                                    </div>
+                                </div>
+                                <div className='fixedCenter' style={{height: '65%'}} >
+                                    <div id='MainTitle' >
+                                        <h1 className='glitch top_heading verticalCenter'>PITT&nbsp;SOCIAL<sup className='top_heading'>2</sup></h1>
+                                    </div> 
+                                    <div id='Login'>
+                                        <Login className="verticalCenter"/>
+                                    </div>
+                                    <Logo src={require('../res/pitt_logo.png')} width='60%'  />  
+                                </div>         
+                            </div>
+                            
+                }}/>
+                
+                <Route exact path='/MainPage' render={(match, history) => {
+                    // return <div className='background'>
+                    //     <h1 className='top_heading'>
+                    //         MainPage is here
+                    //     </h1>
+                    // </div>
+                    return <MainPage></MainPage>
+                }}/>
+                
+            </Router>
         )
     }    
 }

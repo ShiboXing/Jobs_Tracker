@@ -1,6 +1,8 @@
 import React from 'react'
 import './index.css'
 import './mainComponents.css'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+
 
 class Sidebar extends React.Component {
     render() {
@@ -16,7 +18,6 @@ class Sidebar extends React.Component {
                     <SidebarItem title='create group'></SidebarItem>
                     <SidebarItem title='search'></SidebarItem>
                 </ul>
-                
             </div>
         )
     }
@@ -49,13 +50,17 @@ class Login extends React.Component {
                 <InputItem title='username'></InputItem>
                 <InputItem title='password'></InputItem>
                 <div style={{'marginTop':'3vh'}}>
-                    <ReactButton background='CornflowerBlue' color='white' title='Log on' className='LogonButton'/>
-                    <ReactButton background='Olive' color='white' title='Guest log on' className='LogonButton' 
-                        onClick={() => {
-                            window.location.href = './MainPage'
-                        }}
-                    /> 
-                </div>         
+                    <Router>
+                        <ReactButton background='CornflowerBlue' color='white' title='Log on' className='LogonButton' />
+                        <Route path='/'  render={({match, history }) => {
+                            return <ReactButton background='Olive' color='white' title='Guest log on' className='LogonButton' 
+                            onClick={() => { 
+                                // history.push('/MainPage')
+                                location.pathname='/MainPage'
+                            }}/>
+                        }}/>
+                    </Router>  
+                </div>       
             </div>
         )
     }
