@@ -2,12 +2,13 @@
     background: black
 }
 
-div, button, h4, h5, a, table, col, tr, td{
-    padding: 0;
+div, button, h4, h5 {
+    padding: 0px;
 }
 
-h1, h2, h3, h5, img, div, a, table, col, tr, td{
+h1, h2, h3, h5, img, div{
     margin: 0;
+    
 }
 
 * {

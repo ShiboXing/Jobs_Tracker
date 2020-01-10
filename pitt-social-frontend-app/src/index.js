@@ -5,7 +5,7 @@ const Sidebar = require('./components').Sidebar
 const Login = require('./components').Login
 const MainPage = require('./MainPage/index').MainBody
 // const http = require('http')
-require('./index.css')
+require('./style_sheets/index.css')
 
 //import {Sidebar, Login} from './components'
 //import * as serviceWorker from './serviceWorker'
@@ -13,7 +13,7 @@ require('./index.css')
 
 // listReactFiles(__dirname).then(files => console.log(files))
 
-/* violate cross-origin policy */
+/* cors not working correctly */
 
 // var helloOpts= {
 //     host: 'localhost',
@@ -103,7 +103,7 @@ class MainBody extends React.Component {
             <Router>
 
                 <Route exact path='/' render={({match, history }) => {
-                            return <div className='background'>
+                            return <div className='text'>
                                 <link href='https://fonts.googleapis.com/css?family=Alata|Wallpoet&display=swap' rel='stylesheet'/> 
                                 <div>
                                     <div className='LeftPartSecond'>
@@ -136,7 +136,7 @@ class MainBody extends React.Component {
                 }}/>
                 
                 <Route exact path='/MainPage' render={(match, history) => {
-                    // return <div className='background'>
+                    // return <div className='text'>
                     //     <h1 className='top_heading'>
                     //         MainPage is here
                     //     </h1>
