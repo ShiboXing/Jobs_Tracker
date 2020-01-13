@@ -1,5 +1,4 @@
 const React = require('react')
-const ReactDOM = require('react-dom')
 require('../style_sheets/index.css')
 require('../style_sheets/mainComponents.css')
 
@@ -13,7 +12,11 @@ class NavItem extends React.Component {
 
     render() {
         return (
-            <a href='#' className='text NavBarItem' >{this.state.title}</a>
+            <a href='#' className='text NavBarItem' >
+                <h5>
+                    {this.state.title}
+                </h5>
+            </a>
         )
     }
 
@@ -21,15 +24,16 @@ class NavItem extends React.Component {
 
 class NavBar extends React.Component {
 
-    
     render() {
         return (
-            <div className='NavBar'>
-                <div className='navStick'></div>
-                <NavItem title='search people'></NavItem>
-                <NavItem title='posts'></NavItem>
-                <NavItem title='friends'></NavItem>
-                <NavItem title='logout'></NavItem>
+            <div id='NavBarContainer' >
+                <div className='NavBar'>
+                    <div className='navStick'></div>
+                    <NavItem title='search people'></NavItem>
+                    <NavItem title='posts'></NavItem>
+                    <NavItem title='friends'></NavItem>
+                    <NavItem title='logout'></NavItem>
+                </div>
             </div>
         )
     }
@@ -38,7 +42,7 @@ class NavBar extends React.Component {
 class MainBody extends React.Component {
     render() {
         return (
-            <NavBar ></NavBar>
+            <NavBar></NavBar>
         )
     }
 }

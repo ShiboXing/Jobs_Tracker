@@ -1,18 +1,21 @@
 
+#NavBarContainer {
+    position: "fixed";
+    top: 0px;
+    overflow-y: auto;
+    height:40px;
+}
 
 .NavBarItem {
-    display: table-cell;
-    line-height: 1.5;
+    display: inline-block;
+    height:20px;
     background-color: gray;
-    text-decoration: none;
+    text-decoration: none;  
 }
 
 .NavBar {
-    position: fixed;
-    display: table;
-    top: 0%;
-    left: 100%;
-    transform: translateX(-100%);
+    position: absolute;
+    right: 0px;
 }
 
 .NavBar .NavBarItem {

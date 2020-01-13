@@ -1,6 +1,6 @@
 ﻿const React = require('react')
 const ReactDOM = require('react-dom')
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 const Sidebar = require('./components').Sidebar
 const Login = require('./components').Login
 const MainPage = require('./MainPage/index').MainBody
