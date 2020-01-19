@@ -111,4 +111,16 @@ class ReactButton extends React.Component {
     }
 }
 
-export {Sidebar, Login}
+
+class MainSection extends React.Component {
+
+    render() {
+        return (
+            <div className='bg_dk x_75_page y_75_page small_margin small_cor_rad' > 
+                <h2 className='absoluteCenter'>Wotai-Nanle Inc. </h2>
+            </div>
+        )
+    }
+}
+
+export {Sidebar, Login, MainSection}

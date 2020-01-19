@@ -1,11 +1,4 @@
 
-#NavBarContainer {
-    position: "fixed";
-    top: 0px;
-    overflow-y: auto;
-    height:40px;
-}
-
 .NavBarItem {
     display: inline-block;
     height:20px;
@@ -13,10 +6,6 @@
     text-decoration: none;  
 }
 
-.NavBar {
-    position: absolute;
-    right: 0px;
-}
 
 .NavBar .NavBarItem {
     padding: 10px 20px 10px 20px;
@@ -31,6 +20,56 @@
     height: 20%;
     width: 50px;
 }
+
+.x_halfpage {
+    width: 50vw;
+}
+
+.y_halfpage {
+    height: 50vh;
+}
+
+.x_75_page {
+    width: 75vw;
+}
+
+.y_75_page {
+    height: 75vh;
+}
+
+.small_margin {
+    margin: 20px;
+}
+
+.small_cor_rad {
+    border-radius: 15%;
+}
+
+
+
+#NavBarContainer {
+    position: sticky;
+    top: 0px;
+    overflow-y: auto;
+    height:40px;
+    z-index: 5;
+}
+
+#MainNavBar {
+    position: absolute;
+    overflow: hidden;
+    right: 0px;
+    border-radius: 10px 0% 0% 10px;
+
+}
+
+#MainContainer {
+    top: 60px;
+}
+
+
+
+
 
 
 
