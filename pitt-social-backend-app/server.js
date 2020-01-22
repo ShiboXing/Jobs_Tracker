@@ -7,12 +7,6 @@ var app = express()
 var profileRouter = require('./routes/profile')
 
 
-// var corsOption = {
-// 	'origin': 'http://localhost:.LMNKJB VDVB3000/',
-// 	optionSuccessStatus: 200
-// }
-
-// app.use(cors(corsOption))
 
 app.use(cors())
 app.use(express.json())

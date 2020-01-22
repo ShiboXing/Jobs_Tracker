@@ -3,6 +3,44 @@ import './style_sheets/index.css'
 import './style_sheets/loginComponents.css'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
+class NavItem extends React.Component {
+    constructor(props) {
+        super(props) 
+        this.state = {
+            title: props.title,
+            link: props.link
+        }
+    }
+
+    render() {
+        return (
+            <a href={this.state.link} className='text NavBarItem' >
+                <h5>
+                    {this.state.title}
+                </h5>
+            </a>
+        )
+    }
+
+}
+
+class NavBar extends React.Component {
+
+    render() {
+        return (
+            <div id='NavBarContainer'>
+                <div id='MainNavBar' className='NavBar'>
+                    <div className='navStick'></div>
+                    <NavItem title='search people' link='/Search'></NavItem>
+                    <NavItem title='posts' link='idk'></NavItem>
+                    <NavItem title='friends'></NavItem>
+                    <NavItem title='logout'></NavItem>
+                </div>
+            </div>
+        )
+    }
+}
+
 
 class Sidebar extends React.Component {
     render() {
@@ -123,4 +161,4 @@ class MainSection extends React.Component {
     }
 }
 
-export {Sidebar, Login, MainSection}
+export {Sidebar, Login, MainSection, NavBar}

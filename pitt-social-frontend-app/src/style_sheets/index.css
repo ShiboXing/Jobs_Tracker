@@ -67,6 +67,14 @@ html, body, #root, #MainContainer, .span_all {
     transform: translate(-50%, -50%);
 }
 
+.left30 {
+    left: 30%;
+}
+
+.margin10 {
+    margin: 10px;
+}
+
 .x_trans_center {
     left: 50%;
     transform: translateX(-50%);

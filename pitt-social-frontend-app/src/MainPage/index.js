@@ -1,45 +1,9 @@
 const React = require('react')
 const MainSection = require('../components').MainSection
+const NavBar = require('../components').NavBar
 require('../style_sheets/index.css')
 require('../style_sheets/mainComponents.css')
 
-class NavItem extends React.Component {
-    constructor(props) {
-        super(props) 
-        this.state = {
-            title: props.title,
-            link: props.link
-        }
-    }
-
-    render() {
-        return (
-            <a href={this.state.link} className='text NavBarItem' >
-                <h5>
-                    {this.state.title}
-                </h5>
-            </a>
-        )
-    }
-
-}
-
-class NavBar extends React.Component {
-
-    render() {
-        return (
-            <div id='NavBarContainer'>
-                <div id='MainNavBar' className='NavBar'>
-                    <div className='navStick'></div>
-                    <NavItem title='search people' link='/Search'></NavItem>
-                    <NavItem title='posts' link='idk'></NavItem>
-                    <NavItem title='friends'></NavItem>
-                    <NavItem title='logout'></NavItem>
-                </div>
-            </div>
-        )
-    }
-}
 
 
 class MainSectionContainer extends React.Component {
