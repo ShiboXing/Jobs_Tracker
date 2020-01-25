@@ -21,26 +21,23 @@ class SearchObject extends React.Component {
     constructor(props) {
         super(props)
 
-        var activateCanvas = <canvas></canvas>
-        console.log(activateCanvas)
-        var activateDraw = () => {
-            let ctx = activateCanvas.getContext('2d')
+        var activateDraw = node => {
+            console.log('wuyan')
+            let ctx = node.getContext('2d')
             //draw stuff
         }
 
-        //activateDraw()
-
-        this.state = {
-            activate: activateCanvas
-        }
+        let activateCanvas = <canvas ref={e => activateDraw(e)}></canvas>
+        this.activateCanvas = activateCanvas
     }
 
     render() {
         return (
             <div className='absoluteCenter left30'>
+                {this.activateCanvas}
                 <h1 className='top_heading '> Search for friends </h1>
                 <input id='search_bar' style={{margin: '10px 0px 10px 0px'}} type="text" placeholder="enter username or name"/>
-                {this.state.activate}
+                
             </div>
         )
     }
