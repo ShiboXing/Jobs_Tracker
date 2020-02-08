@@ -1,7 +1,7 @@
 import React from 'react'
 import './style_sheets/index.css'
 import './style_sheets/loginComponents.css'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 class NavItem extends React.Component {
     constructor(props) {

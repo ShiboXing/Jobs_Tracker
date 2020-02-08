@@ -92,7 +92,7 @@ function helloGet(url) {
 class MainBody extends React.Component {
     componentDidMount() {
         helloGet('http://localhost:4000/hello')
-        helloGet('http://localhost:4000/profile')
+        //helloGet('http://localhost:4000/profile')
         //httpHelloGet('localhost','/hello')
         //helloGet('http://localhost','/httpHello')
         // .then((data) => {
