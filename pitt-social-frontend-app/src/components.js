@@ -14,7 +14,7 @@ class NavItem extends React.Component {
 
     render() {
         return (
-            <a href={this.state.link} className='text NavBarItem' >
+            <a href={this.state.link} className='text NavBarItem'>
                 <h5>
                     {this.state.title}
                 </h5>
@@ -32,7 +32,7 @@ class NavBar extends React.Component {
                 <div id='MainNavBar' className='NavBar'>
                     <div className='navStick'></div>
                     <NavItem title='search people' link='/Search'></NavItem>
-                    <NavItem title='posts' link='idk'></NavItem>
+                    <NavItem title='posts' link='MainPage'></NavItem>
                     <NavItem title='friends'></NavItem>
                     <NavItem title='logout'></NavItem>
                 </div>
@@ -92,11 +92,16 @@ class Login extends React.Component {
                         <ReactButton background='CornflowerBlue' color='white' title='Log on' className='LogonButton' />
                         <Route path='/'  render={({match, history }) => {
                             return <ReactButton background='Olive' color='white' title='Guest log on' className='LogonButton' 
-                            onClick={() => { 
-                                // history.push('/MainPage')
-                                location.pathname='/MainPage'
-                            }}/>
+                                onClick={() => { 
+                                    // history.push('/MainPage')
+                                    location.pathname='/MainPage'
+                                }}/>
                         }}/>
+                        <ReactButton background='crimson' color='white' title='Register' className='LogonButton' 
+                            onClick={() => {
+                                location.pathname='/Register'
+                            }}/>
+                        
                     </Router>  
                 </div>       
             </div>
@@ -106,16 +111,12 @@ class Login extends React.Component {
 }
 
 class InputItem extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {title: props.title}
-    }
 
     render() {
         return (
             <div  className='InputItem' >
-                <h3 className='InputTitle'>{this.state.title}</h3>
-                <input type='text'></input>
+                <h3 className='InputTitle text'>{this.props.title}</h3>
+                <input type='text' id={this.props.id} name={this.props.name} type={this.props.type} ></input>
             </div>
         )
     }
@@ -161,4 +162,4 @@ class MainSection extends React.Component {
     }
 }
 
-export {Sidebar, Login, MainSection, NavBar}
+export {Sidebar, Login, MainSection, NavBar, InputItem}

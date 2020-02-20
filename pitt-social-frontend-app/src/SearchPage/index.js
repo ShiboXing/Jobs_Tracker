@@ -21,9 +21,6 @@ class SearchObject extends React.Component {
     constructor(props) {
         super(props)
 
-       
-        
-
         let activateDraw = node => {
             let blob = {
                 x: 30,
@@ -52,9 +49,6 @@ class SearchObject extends React.Component {
         
     }
 
-    
-
-    
 
     render() {
         return (
@@ -74,8 +68,18 @@ class SearchObject extends React.Component {
 }
 
 
-
-
-
+fetch('http://localhost:4000/profile', {
+    method: 'GET',
+    mode:'cors',
+    header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    }
+}).then((result) => {
+    return result.json() //returns a Promise
+}).then((result) => { // must use then to have the Promise resolved, otherwise pending
+    console.log(result)
+}).catch((error) => {
+    console.error('Hello Get Error:', error)
+}) // catches all the errors from above Promise resolution
 
 export {MainBody}

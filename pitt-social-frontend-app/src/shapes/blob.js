@@ -19,8 +19,8 @@ class Circle extends React.Component {
     }
 
     make_circle(){
-        let step = Math.PI / 30 //smaller the step, bigger the noise (jumbles)
-        for (let i = 0; i < 2 * Math.PI + step; i += step) {
+        let step = Math.PI / 20 //smaller the step, bigger the noise (jumbles)
+        for (let i = 0; i < 2 * Math.PI; i += step) {
             this.pts.push(this.vec2cart(i))
         }
         
@@ -37,8 +37,8 @@ class Circle extends React.Component {
         for (let i = 0; i < this.pts.length; i++) {
             this.ctx.lineTo(this.pts[i][0] + Math.random() * sigma - sigma / 2, 
                             this.pts[i][1] + Math.random() * sigma - sigma / 2)
-
         }
+        this.ctx.lineTo(this.x, this.y + this.r)
         //console.log(test_pts)
 
         //this.ctx.strokeStyle = 'yellow'
@@ -57,7 +57,7 @@ class Circle extends React.Component {
         setInterval(
             () => {
                 this.ctx.clearRect(0, 0, 200, 200)
-                this.draw(4)
+                this.draw(3)
             }
         , 50)
     }

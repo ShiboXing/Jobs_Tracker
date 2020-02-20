@@ -5,41 +5,18 @@ const Sidebar = require('./components').Sidebar
 const Login = require('./components').Login
 const MainPage = require('./MainPage/index').MainBody
 const SearchPage = require('./SearchPage/index').MainBody
-console.log(SearchPage)
-// const http = require('http')
+const RegisterPage = require('./RegisterPage/index').MainBody
 require('./style_sheets/index.css')
 
-//import {Sidebar, Login} from './components'
-//import * as serviceWorker from './serviceWorker'
-//ServiceWorker deprecated ???
-
-// listReactFiles(__dirname).then(files => console.log(files))
-
-/* cors not working correctly */
-
-// var helloOpts= {
-//     host: 'localhost',
-//     port: 4000,
-//     path: '/',
-//     method: 'GET',
-//     headers: {'content-type':'application/x-www-form-urlencoded'}
-// }
-
-// var helloGet= http.request(helloOpts, function(res) {
-//     res.setEncoding('utf8')
-//     res.on('data', function(d) {
-//         alert(d)
-//     })
-    
-// })
-// helloGet.on('error', (err) => {
-//     console.log('error on GET')
-// });
-
-// helloGet.write('')
-// helloGet.end()
 
 
+//Add script tags
+var jQuery = <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+var font = <link href='https://fonts.googleapis.com/css?family=Alata|Wallpoet&display=swap' rel='stylesheet'/>
+var scripts = document.createElement('div')
+scripts.id = 'scripts'
+document.getElementsByTagName('head')[0].appendChild(scripts)
+ReactDOM.render(<div>{jQuery}{font}</div>, document.getElementById('scripts'))
 
 
 function helloGet(url) {
@@ -54,56 +31,22 @@ function helloGet(url) {
     }).then((result) => { // must use then to have the Promise resolved, otherwise pending
         console.log(result)
     }).catch((error) => {
-        console.error('Error:', error);
-    })
+        console.error('Hello Get Error:', error)
+    }) // catches all the errors from above Promise resolution
 }
 
 
 
 
-
-// function httpHelloGet(url, path) {
-//     let opts = {
-//         host: url,
-//         port: 4000,
-//         path: path,
-//         method:'GET',
-//         headers: {
-//             'Content-Type': 'application/x-www-form-urlencoded',
-//             'Access-Control-Allow-Headers':'Content-Type',
-//             'Access-Control-Allow-Methods':'GET',
-//             'Access-Control-Allow-Origin':'http://localhost:3000/'
-//         }
-//     }
-//     let req = http.request(opts, function(res) {
-//         res.setEncoding('utf8')       
-//         console.log('res:',res)
-
-//         res.on('data', function(data) {
-//             console.log('data: ',data)
-//         })
-//     })
-
-//     req.end()
-// }
- 
-
-
 class MainBody extends React.Component {
     componentDidMount() {
         helloGet('http://localhost:4000/hello')
-        //helloGet('http://localhost:4000/profile')
-        //httpHelloGet('localhost','/hello')
-        //helloGet('http://localhost','/httpHello')
-        // .then((data) => {
-        //     console.log(data)
-        // })
     }
 
     render() {
         return (
             <Router>
-                <link href='https://fonts.googleapis.com/css?family=Alata|Wallpoet&display=swap' rel='stylesheet'/>
+                
                 
                 <Route exact path='/' render={({match, history }) => {
                     return <div className='text span_all absolute inline-block'>
@@ -144,6 +87,10 @@ class MainBody extends React.Component {
                 <Route exact path='/Search' render={(match, history) => {
                     return  <SearchPage></SearchPage>
                 }}/>
+                
+                <Route exact path='/Register' render={(match, history) => {
+                    return <RegisterPage></RegisterPage>
+                }}></Route>
 
             </Router>
         )
@@ -166,7 +113,7 @@ class Logo extends React.Component {
         let img = new Image()
         img.src = this.state.src;
         this.setState({ aspectRatio: ((parseFloat(img.height) / parseFloat(img.width)) * 100) + '%'})
-        console.log(this.state.aspectRatio)
+        //console.log(this.state.aspectRatio)
     }
 
     render() {
@@ -183,5 +130,3 @@ class Logo extends React.Component {
 
 
 ReactDOM.render(<MainBody />, document.getElementById('root'))
-// console.log(process.cwd())
-//serviceWorker.unregister()
