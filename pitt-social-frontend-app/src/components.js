@@ -114,11 +114,15 @@ class InputItem extends React.Component {
 
     render() {
         return (
-            <div  className='InputItem' >
+            <div className='InputItem' >
                 <h3 className='InputTitle text'>{this.props.title}</h3>
                 <input type='text' id={this.props.id} name={this.props.name} type={this.props.type} ></input>
             </div>
         )
+    }
+
+    ff() {
+        this.console.log('ff')
     }
 }
 

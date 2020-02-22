@@ -1,65 +1,45 @@
-﻿const React = require('react')
+﻿import {BrowserRouter as Router, Route} from 'react-router-dom'
+const React = require('react')
 const ReactDOM = require('react-dom')
-import {BrowserRouter as Router, Route} from 'react-router-dom'
 const Sidebar = require('./components').Sidebar
 const Login = require('./components').Login
 const MainPage = require('./MainPage/index').MainBody
 const SearchPage = require('./SearchPage/index').MainBody
+var $ = require('jquery')
 const RegisterPage = require('./RegisterPage/index').MainBody
 require('./style_sheets/index.css')
 
 
 
-//Add script tags
-var jQuery = <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-var font = <link href='https://fonts.googleapis.com/css?family=Alata|Wallpoet&display=swap' rel='stylesheet'/>
-var scripts = document.createElement('div')
-scripts.id = 'scripts'
-document.getElementsByTagName('head')[0].appendChild(scripts)
-ReactDOM.render(<div>{jQuery}{font}</div>, document.getElementById('scripts'))
-
-
-function helloGet(url) {
-    fetch(url, {
-        method: 'GET',
-        mode:'cors',
-        header: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-    }).then((result) => {
-        return result.json() //returns a Promise
-    }).then((result) => { // must use then to have the Promise resolved, otherwise pending
-        console.log(result)
-    }).catch((error) => {
-        console.error('Hello Get Error:', error)
-    }) // catches all the errors from above Promise resolution
-}
-
-
 
 
 class MainBody extends React.Component {
-    componentDidMount() {
-        helloGet('http://localhost:4000/hello')
+    constructor(props) {
+        super(props)
+        //Add script tags
+        var jQuery = <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        var font = <link href='https://fonts.googleapis.com/css?family=Alata|Wallpoet&display=swap' rel='stylesheet'/>
+        var scripts = document.createElement('div')
+        scripts.id = 'scripts'
+        document.getElementsByTagName('head')[0].appendChild(scripts)
+        ReactDOM.render(<div>{jQuery}{font}</div>, document.getElementById('scripts'))
     }
 
     render() {
         return (
             <Router>
-                
-                
                 <Route exact path='/' render={({match, history }) => {
                     return <div className='text span_all absolute inline-block'>
                         <div>
                             <div className='LeftPartSecond'>
-                                <h3> Welcome to Pitt Social<sup>2</sup> , a platform for pitt affiliated people to social </h3>
+                                <h3> Welcome to Pitt Social<sup>2</sup> , aaaa xxxx </h3>
                                 <hr />
-                                <h3> feel free to social, if you are a &nbsp;
+                                <h3> aaa xxxx xxxx &nbsp;
                                     <abbr title='pitt affiliated person'>PAP</abbr>
                                 </h3>
-                                <h1 className='top_heading'> How to social </h1>
-                                <p> Add friends, add groups -> Send messages <br/>
-                                    Search people, search message, be manager
+                                <h1 className='top_heading'> mmmmmm </h1>
+                                <p> () => return x <br/>
+                                    (() => console.log(this))()
                                 </p>
                             </div>
     
@@ -130,3 +110,4 @@ class Logo extends React.Component {
 
 
 ReactDOM.render(<MainBody />, document.getElementById('root'))
+
