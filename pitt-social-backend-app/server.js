@@ -31,13 +31,3 @@ app.get('/hello', function(req, res) {   //hello for testing
 
 app.listen(4000)
 console.log('Server running at http://127.0.0.1:4000/');
-
-// var o = {p: 3}
-// with(o) {
-//     console.log(p)
-// }
-
-(function anon(){
-    var o = 1
-    console.log(this)
-})()

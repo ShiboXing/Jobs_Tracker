@@ -1,7 +1,14 @@
 ﻿
+@media screen and (not min-width: 500px) {
+    body, .bg_bk {
+        background-color: white;
+    }
+}
 
-body, .bg_bk {
-    background-color: black;
+@media screen and (min-width: 1000px){
+    body, .bg_bk {
+        background-color: black;
+    }
 }
 
 .bg_dk {
@@ -214,4 +221,3 @@ html, body, #root, #MainContainer, .span_all {
     position: relative;
     height: 65%;
 }
-

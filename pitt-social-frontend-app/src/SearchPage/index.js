@@ -74,8 +74,8 @@ fetch('http://localhost:4000/profile', {
     header: {
         'Content-Type': 'application/x-www-form-urlencoded'
     }
-}).then((result) => {
-    return result.json() //returns a Promise
+}).then((result) => { //result -> response stream
+    return result.json() //returns a Promise, see json() API
 }).then((result) => { // must use then to have the Promise resolved, otherwise pending
     console.log(result)
 }).catch((error) => {

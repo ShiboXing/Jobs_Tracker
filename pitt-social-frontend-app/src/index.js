@@ -5,11 +5,8 @@ const Sidebar = require('./components').Sidebar
 const Login = require('./components').Login
 const MainPage = require('./MainPage/index').MainBody
 const SearchPage = require('./SearchPage/index').MainBody
-var $ = require('jquery')
 const RegisterPage = require('./RegisterPage/index').MainBody
 require('./style_sheets/index.css')
-
-
 
 
 

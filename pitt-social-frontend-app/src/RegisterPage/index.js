@@ -7,8 +7,7 @@ class MainBody extends React.Component {
     
     constructor(props) {
         super(props)
-        this.form= (<form id='register_form'  method='POST' 
-                        className='absoluteCenter' style={{left: '20%'}}>
+        this.form= (<form id='register_form'  method='POST' className='absoluteCenter' style={{left: '20%'}}>
                         <InputItem title='username' id='uname' name='uname'></InputItem>
                         <InputItem title='password' id='pwd' name='pwd' type='password'></InputItem>
                         <input type='submit' value='Submit'></input>
@@ -29,8 +28,16 @@ class MainBody extends React.Component {
                 url:'http://localhost:4000/register',
                 type: 'POST',
                 data: data
+            }).done(() => {
+                this.registration_done()
+            }).fail((err) => {
+                console.log('post error' + err.valueOf())
             })
         })
+    }
+
+    registration_done() {
+        window.location = 'http://localhost:3000'
     }
 
     render() {
@@ -41,7 +48,7 @@ class MainBody extends React.Component {
 
 (function() {
     function handler() {
-        console.log(this.responseText)
+        // console.log(this.responseText)
     }
     var xhr = new XMLHttpRequest() 
     xhr.open('GET', 'http://localhost:4000/register')
@@ -49,7 +56,7 @@ class MainBody extends React.Component {
     xhr.send()
 })();
 
-(() => console.log(this))(); // this proves react runs this in strict mode -> 'this' is undefined instead of global object
+// (() => console.log(this))(); // this proves react runs this in strict mode -> 'this' is undefined instead of global object
 
 
 
