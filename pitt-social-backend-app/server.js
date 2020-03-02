@@ -30,4 +30,36 @@ app.get('/hello', function(req, res) {   //hello for testing
 
 
 app.listen(4000)
-console.log('Server running at http://127.0.0.1:4000/');
+console.log('Server running at http://127.0.0.1:4000/')
+
+
+
+
+//db
+const redis = require('redis')
+const conn = redis.createClient()
+
+conn.on('error', err => {
+    console.log('redis error ' + err)
+})
+
+
+votes = ["ZMNAGUEDSJYLBOPHRQICWFXTVK"]
+dic = {}
+for (var i in votes[0]) 
+    dic[votes[0][i]] = (new Array(votes[0].length)).fill(0, 0, votes[0].length) //map skips empty items?
+votes.forEach(e => {
+    for (var i in e) dic[e[i]][i]++
+})
+
+
+console.log(dic['Z'] + '')
+// for (var i in votes[0])
+//     console.log(dic[votes[0][i]])
+
+console.log(votes[0].split('').sort((a, b) => {
+    // if (!(dic[a] > dic[b]) && !(dic[a] < dic[b])) 
+    //     return a > b
+    return dic[a].join('') < dic[b].join('')
+}).join(''))
+

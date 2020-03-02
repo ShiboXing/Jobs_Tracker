@@ -1,0 +1,54 @@
+.StopRotate {    
+    animation: StopRotateAnimation 5s ease infinite;
+    animation-play-state: running;
+    animation-delay: 0.5s;
+}
+
+@keyframes StopRotateAnimation {
+    50% { transform: rotateY(360deg);}
+    100% { transform: rotateY(360deg); }
+}
+
+.glitch {
+    transform: skew(0deg);
+    animation: GlitchAnimation 2s linear infinite;
+    animation-delay: 2s;
+    animation-play-state: running;
+    filter: none;
+}
+
+/* taken from psycho-pass.com */
+@keyframes GlitchAnimation { 
+    0%, 20%, 33%, 60%, 64%, 66%, 69%, 73%, 75%, 90%, 93%, 100% {
+        transform: skew(0deg);
+        filter: none;
+    }
+    21%, 81% {
+        transform: skew(30deg, 0deg);
+        filter: drop-shadow(4px 4px 7px rgba(274,27,27,1));
+    }
+    22%, 82% {
+        transform: skew(-30deg, 0deg);
+        filter: drop-shadow(4px 4px 7px rgba(35,184,197,1));
+    }
+    61% {
+        transform: skew(35deg);
+        filter: drop-shadow(4px 4px 7px rgba(274,27,27,1));
+    }
+    62% {
+        transform: skew(-15deg, -8deg);
+        filter: drop-shadow(4px 4px 7px rgba(35,184,197,1));
+    }
+    65% {
+        transform: skew(15deg, -8deg);
+        filter: drop-shadow(4px 4px 7px rgba(274,27,27,1));
+    }
+    70% {
+        transform: skew(-65deg);
+        filter: drop-shadow(4px 4px 7px rgba(35,184,197,1));
+    }
+    74% {
+        transform: skew(15deg, -15deg);
+        filter: drop-shadow(4px 4px 7px rgba(274,27,27,1));
+    }
+}

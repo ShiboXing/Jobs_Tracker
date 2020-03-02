@@ -1,0 +1,42 @@
+.inline {
+    display: inline;
+}
+
+.inline_block {
+    display: inline-block;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.table {
+    display: table;
+}
+ 
+.trans_x_center {
+    left: 50%;
+    transform: translateX(-50%);
+} 
+
+.half_w {
+    width: 50%;
+}
+
+.span_w {
+    width: 100%;
+}
+
+/* to re-adjust the left dots or indices */
+ul, ol {
+    display: inline-block;
+    transform: translateX(100%);
+}
+
+table {
+    align-content: center;
+}

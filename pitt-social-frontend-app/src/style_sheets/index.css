@@ -1,223 +1,76 @@
-﻿
-@media screen and (not min-width: 500px) {
+﻿@import url('../../node_modules/bootstrap/dist/css/bootstrap.css') all;
+@import url('utils.css') all;
+@import url('animations.css') all;
+
+@media not screen and (min-width: 600px) {
     body, .bg_bk {
-        background-color: white;
+        background-color: rgb(22, 22, 22);
     }
 }
-
-@media screen and (min-width: 1000px){
+@media screen and (min-width: 600px){
     body, .bg_bk {
-        background-color: black;
+        background-color: rgb(31, 31, 31);
     }
 }
-
-.bg_dk {
-    background-color: #343a40;
-}
-
-div, button, h4, h5 {
-    padding: 0px;
-}
-
-h1, h2, h3, h5, img, div, body{
-    margin: 0;
+@supports(display:grid) {
+    h3 {
+        color: grey;
+    }
 }
 
 * {
     font-family: 'Alata', sans-serif;
     position: relative;
     user-select: none;
+    margin: 0;
+    padding: 0;
 }
-
-.inline-block {
-    display: inline-block;    
-}
-
-.relative {
-    display: relative;
-}
-
-.absolute {
-    display: absolute;
-}
-
-
 
 html, body, #root, #MainContainer, .span_all {
     width: 100%;
     height: 100%;
 }
 
-.span_x {
-    width: 100%;
-}
-
-.span_y {
-    width: 100%;
-}
-
-
-.absolute {
-    position: absolute;
-}
-
-.verticalCenter {
-    position: relative;
-    top: 50%;
-    transform: translate(0%, -50%);
-}
-
-.absoluteCenter {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.left30 {
-    left: 30%;
-}
-
-.margin10 {
-    margin: 10px;
-}
-
-.x_trans_center {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.fixedCenter {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10% 5% 10% 5%;
-}
-
-.flexHorizontallCenter {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
-
-.flexVerticallCenter {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.fillParent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+#MainTitle {
+    border: solid thick yellow;
 }
 
 .top_heading {
-    font-family: 'Wallpoet', cursive;
-}  
-
-
-.logo {
-    position: absolute;
-    z-index: -1;
+    color: wheat;    
 }
 
-.LeftPartSecond {
-    position: relative;
-    float: left;
-    display: inline-block;
-    padding: 5;
-    width: 60%;
+.top_heading.main {
+    border-style: dashed;
+    border-color: red;
+    border-radius: 10%;
 }
 
-.RightPartFirst {
-    position: relative;
-    display: inline-block;
-    float: right;
-    text-align: right;
-    padding: 10px;
-    width: 30%;
+/* |= can only select a prefix followed by a hyphen */
+/* HTML5 tags or attributes are case insentive */
+*[id^=Log][id|=Login][ID*='hyphen'i]{ 
+    border-style: dotted solid dotted solid;
+    border-width: medium;
+    border-color: lightgreen;
+}
+/* > select immediate descendants */
+.list > ol li, .list > div ol li + li + li{
+    font-size: 200%;
 }
 
-.text {
-    color: white;
+/* selects any li that FOLLOWS another li !!!! */
+/* previou li hovered, current li highlighted */
+li:hover + li{
+    color: aqua;
 }
 
-.grayscale {
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
-    opacity: 20%;
-}
 
-.StopRotate {    
-    animation: StopRotateAnimation 5s ease infinite;
-    animation-play-state: running;
-    animation-delay: 0.5s;
-}
 
-@keyframes StopRotateAnimation {
-    50% { transform: rotateY(360deg);}
-    100% { transform: rotateY(360deg); }
-}
 
-#MainTitle {   
-    position: relative;
-    height: 30%;
-    font-size: xx-large;
-    text-align: center;
-    cursor: default;
 
-}
 
-.glitch {
-    transform: skew(0deg);
-    animation: GlitchAnimation 2s linear infinite;
-    animation-delay: 2s;
-    animation-play-state: running;
-    filter: none;
-}
 
-/* taken from psycho-pass.com */
-@keyframes GlitchAnimation { 
-    0%, 20%, 33%, 60%, 64%, 66%, 69%, 73%, 75%, 90%, 93%, 100% {
-        transform: skew(0deg);
-        filter: none;
-    }
-    21%, 81% {
-        transform: skew(30deg, 0deg);
-        filter: drop-shadow(4px 4px 7px rgba(274,27,27,1));
-    }
-    22%, 82% {
-        transform: skew(-30deg, 0deg);
-        filter: drop-shadow(4px 4px 7px rgba(35,184,197,1));
-    }
-    61% {
-        transform: skew(35deg);
-        filter: drop-shadow(4px 4px 7px rgba(274,27,27,1));
-    }
-    62% {
-        transform: skew(-15deg, -8deg);
-        filter: drop-shadow(4px 4px 7px rgba(35,184,197,1));
-    }
-    65% {
-        transform: skew(15deg, -8deg);
-        filter: drop-shadow(4px 4px 7px rgba(274,27,27,1));
-    }
-    70% {
-        transform: skew(-65deg);
-        filter: drop-shadow(4px 4px 7px rgba(35,184,197,1));
-    }
-    74% {
-        transform: skew(15deg, -15deg);
-        filter: drop-shadow(4px 4px 7px rgba(274,27,27,1));
-    }
-}
-#Login {
-    position: relative;
-    height: 65%;
-}
+
+
+
+
+

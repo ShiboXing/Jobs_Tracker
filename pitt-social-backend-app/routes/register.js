@@ -1,13 +1,6 @@
 //api
 const express = require('express')
 var bodyParser = require('body-parser')
-//db
-const redis = require('redis')
-const conn = redis.createClient()
-
-conn.on('error', err => {
-    console.log('redis error ' + err)
-})
 
 
 const router = express.Router()

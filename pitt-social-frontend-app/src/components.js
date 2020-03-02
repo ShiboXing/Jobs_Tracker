@@ -33,7 +33,7 @@ class NavBar extends React.Component {
                     <div className='navStick'></div>
                     <NavItem title='search people' link='/Search'></NavItem>
                     <NavItem title='posts' link='MainPage'></NavItem>
-                    <NavItem title='friends'></NavItem>
+                    <NavItem title='HTTP Demo' link='HTTP'></NavItem>
                     <NavItem title='logout'></NavItem>
                 </div>
             </div>
