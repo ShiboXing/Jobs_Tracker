@@ -63,3 +63,39 @@ console.log(votes[0].split('').sort((a, b) => {
     return dic[a].join('') < dic[b].join('')
 }).join(''))
 
+
+
+function copy(o) {
+    var res = {}
+    for (var k in o) {
+        
+        if (typeof o[k] == 'object' || Array.isArray(o[k]) && (!o[k] instanceof Function)) {
+            res[k] = copy(o[k]);
+        } 
+        else
+            res[k] = o[k];
+    }
+
+    return res;
+}
+
+
+var root = {}
+
+function bsort(elem, root) {
+    if(root.val == undefined) {
+        root.val = elem
+        root.left = {}
+        root.right = {}
+    }
+    if (elem < root.val) 
+        bsort(val, root.left)
+    else if (elem > root.val)
+        bsort(val, root.right)   
+}
+
+arr = [3,5,6,7,2,10]
+
+for (var d in arr) {
+    bsort(d, root);
+}

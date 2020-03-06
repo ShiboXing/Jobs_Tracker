@@ -31,40 +31,6 @@ html, body, #root, #MainContainer, .span_all {
     height: 100%;
 }
 
-#MainTitle {
-    border: solid thick yellow;
-}
-
-.top_heading {
-    color: wheat;    
-}
-
-.top_heading.main {
-    border-style: dashed;
-    border-color: red;
-    border-radius: 10%;
-}
-
-/* |= can only select a prefix followed by a hyphen */
-/* HTML5 tags or attributes are case insentive */
-*[id^=Log][id|=Login][ID*='hyphen'i]{ 
-    border-style: dotted solid dotted solid;
-    border-width: medium;
-    border-color: lightgreen;
-}
-/* > select immediate descendants */
-.list > ol li, .list > div ol li + li + li{
-    font-size: 200%;
-}
-
-/* selects any li that FOLLOWS another li !!!! */
-/* previou li hovered, current li highlighted */
-li:hover + li{
-    color: aqua;
-}
-
-
-
 
 
 

@@ -47,13 +47,13 @@ class MainBody extends React.Component {
                                 <Sidebar />
                             </div>
                         </div>   
-                        <div class='table absolute trans_x_center list' style={{width: '70%'}}>
+                        <div class='table trans_x_center list' style={{width: '70%'}}>
                             <div class='inline_block relative half_w'>
                                 <ol class='trans_x_center'>
-                                    <li>I</li>
-                                    <li>II</li>
-                                    <li>III</li>
-                                    <li>IV</li>
+                                    <li>i</li>
+                                    <li>ii</li>
+                                    <li>iii</li>
+                                    <li>iv</li>
                                 </ol>
                             </div>
                             <div class='inline_block relative half_w'> 
@@ -65,6 +65,12 @@ class MainBody extends React.Component {
                                 </ul>
                             </div>
                         </div>     
+                        <div class='trans_x_center inline_block' >
+                            <p></p>
+                            <p></p> 
+                            <p></p> 
+                            <p id='bottom_p'>paragraph</p>  
+                        </div>
                     </div>
                             
                 }}/>

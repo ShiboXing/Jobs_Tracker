@@ -37,6 +37,18 @@ ul, ol {
     transform: translateX(100%);
 }
 
+ul:only-of-type {
+    font-size: 0.7rem;
+}
+
+ol:only-of-type {
+    font-size: 1.5rem;
+}
+
 table {
     align-content: center;
+}
+
+li:last-child {
+    text-transform: lowercase;
 }
