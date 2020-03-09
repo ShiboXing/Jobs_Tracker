@@ -1,6 +1,6 @@
 const React = require('react');
 const PropTypes = require('prop-types')
-import styles from '../style_sheets/httpStyle.module.css'
+import styles from '../style_sheets/http.module.css'
 
 console.log(styles)
 
