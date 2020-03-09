@@ -31,6 +31,14 @@
     width: 100%;
 }
 
+.span_h {
+    height: 100%;
+}
+
+.show_urself {
+    border: medium dashed green;
+}
+
 /* to re-adjust the left dots or indices */
 ul, ol {
     display: inline-block;
@@ -51,4 +59,8 @@ table {
 
 li:last-child {
     text-transform: lowercase;
+}
+
+.round_corner {
+    border-radius: 10px;
 }

@@ -1,0 +1,14 @@
+@import url('utils.css') all;
+
+tr > td {
+    height: 50%;
+}
+
+#etch_a {
+    background-color: grey;
+    
+}
+
+h4 { 
+    color: white
+}
