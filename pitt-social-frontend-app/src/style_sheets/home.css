@@ -1,4 +1,3 @@
-
 li {
     color: silver;
 }
@@ -25,52 +24,22 @@ li {
     border-width: medium;
     border-color: lightgreen;
 }
-/* > select immediate descendants */
-.list > ol li, .list > div ol li + li + li{
-    font-size: 200%;
+
+
+div > p {
+    font-size: larger;
+}
+p > p {
+    font-weight: bolder;
+    font-size: larger;
 }
 
-ul > li:nth-last-child(n + 3) {
-    color:gold;
+p {
+    text-indent: 3em;
+    color: greenyellow;
+    margin: 0;
+    line-height: 200%;
 }
 
-/* meaning there are 4 children in total */
-ol > li:nth-last-child(4):first-of-type ~ li {
-    text-transform: capitalize;
-}
-/* select even */
-ol > li:not(:nth-child(2n + 1)) {
-    color:khaki;
-}
 
-/* ul > *:first-child, ol > :first-child */
-/* same effect as the line above */
 
-li:first-child {
-    background-color: tomato;
-}
-
-div:last-child {
-    font-style: italic;
-}
-
-p:last-child {
-    text-transform: uppercase;
-    color: aqua;
-}
-
-/* same as :only-of-type */
-h1:first-of-type:last-of-type {
-    text-transform: uppercase;
-    color: orange;
-}
-
-/* selects any li that FOLLOWS another li !!!! */
-/* previou li hovered, current li highlighted */
-li:hover + li {
-    color: aqua;
-}
-
-:target {
-    background-color:navy;
-}

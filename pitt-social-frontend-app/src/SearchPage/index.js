@@ -22,6 +22,7 @@ class SearchObject extends React.Component {
         super(props)
 
         let activateDraw = node => {
+            
             let blob = {
                 x: 30,
                 y: 30,

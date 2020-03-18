@@ -1,6 +1,6 @@
 ﻿@import url('../../node_modules/bootstrap/dist/css/bootstrap.css') all;
-@import url('utils.css') all;
-@import url('animations.css') all;
+@import url('./utils.css') all;
+@import url('./animations.css') all;
 
 @media not screen and (min-width: 600px) {
     body, .bg_bk {
@@ -12,6 +12,7 @@
         background-color: rgb(31, 31, 31);
     }
 }
+
 @supports(display:grid) {
     h3 {
         color: grey;

@@ -8,14 +8,16 @@ class MainBody extends React.Component {
     constructor(props) {
         super(props)
         this.form= (<form id='register_form'  method='POST' className='absoluteCenter' style={{left: '20%'}}>
-                        <InputItem title='username' id='uname' name='uname'></InputItem>
-                        <InputItem title='password' id='pwd' name='pwd' type='password'></InputItem>
+                        <InputItem title='username' id='uname' name='uname' ></InputItem>
+                        <InputItem title='password' id='pwd' name='pwd' type='password' ></InputItem>
                         <input type='submit' value='Submit'></input>
-                    </form> )                   
+                    </form> )   
+
     }
 
     componentDidMount() {
         $('#register_form').on('submit', e => {
+            console.log(this.refs)
             e.preventDefault()
             var inputs = $('#register_form input:not([type=submit])')
             console.log(inputs)

@@ -114,9 +114,9 @@ class InputItem extends React.Component {
 
     render() {
         return (
-            <div className='InputItem' >
+            <div className='InputItem'  >
                 <h3 className='InputTitle text'>{this.props.title}</h3>
-                <input id={this.props.id} name={this.props.name} type={this.props.type}></input>
+                <input id={this.props.id} name={this.props.name} type={this.props.type} ref='_value'></input>
             </div>
         )
     }
