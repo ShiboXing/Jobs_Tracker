@@ -10,38 +10,40 @@ class Mainbody extends React.Component {
         this.RefPrint = (e) => console.log(e);
     }
 
-    addClick(e) {
-        console.log('Etch_A Clicked 0 times');
-        document.getElementsByTagName('h3')[0].innerText.mat
-        document.getElementsByTagName('h3')[0].innerText.replace(/\d+/, )
-    }
+  
 
     render() {
         return (
             <div>
                 <h3>http demo </h3>
                 <div id='Etch_Container' style={{width: '70vw', height: '80vh'}} className='trans_x_center' >
-                    <table className='span_w span_h' style={{'border-spacing': '0px 10px', borderCollapse: 'separate'}} ref={this.tableRef} >
+                    <table className='span_w span_h' style={{borderSpacing: '0px 10px', borderCollapse: 'separate'}} ref={this.tableRef} >
                         <tbody>
                             <tr>
                                 <td ref='_td_ref1'>
-                                    <Etch_A title='trackpad' etch_clicked={this.addClick}></Etch_A>
+                                    <Etch_A title='trackpad' isTrack={true}></Etch_A>
                                 </td> 
                             </tr>
                             <tr> 
                                 <td ref='_td_ref2' >
-                                    <div style={{display:'grid', gridGap: '10px'}} class='half_grid span_w span_h'>
-                                        <div className='inline-block span_x span_y' style={{gridArea: 'blk1'}}>
-                                            <Etch_A title='socket.io' etch_clicked={this.addClick}></Etch_A>
+                                    <div className='half_grid span_w span_h'  >
+                                        <div className='inline_block' style={{gridArea: 'blk1', width: '50%'}}>
+                                            <Etch_A title='socket.io'></Etch_A>
                                         </div>
-                                        <div className='inline-block span_x span_y' style={{gridArea: 'blk2'}}>
-                                            <Etch_A title='Https' etch_clicked={this.addClick}></Etch_A>
+                                        <div className='inline_block' style={{gridArea: 'blk2', width: '50%'}}>
+                                            <Etch_A title='s'></Etch_A>
                                         </div>
                                     </div>
                                 </td> 
                             </tr>
                         </tbody>
                     </table>
+                    <div style={{height: '6em'}} className='show_urself'>
+                        <div style={{position:'absolute', width: '50%', height: '30%', 
+                        margin:'auto', top:'35%'}}>
+                            blablablabla egn4ign4igni4ngi4ng
+                        </div>
+                    </div>
                 </div>
             </div>
         )
@@ -54,6 +56,38 @@ class Mainbody extends React.Component {
 
 
 class Etch_A extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        let updateXY = (function(e) {
+            if (this.state.MouseIsDown && this.props.isTrack) {
+                this.state.buffer.unshift([e.clientX, e.clientY]);
+                this.state.buffer.pop();
+                // console.log(this.state.buffer);
+                // this.state.Pad.
+            }
+        }).bind(this);
+
+        // assign state directly before component is mounted
+        this.state = ({
+            Pad: <canvas className='span_w span_h' style={{background: 'DimGray'}} onMouseDown={() => {
+                        this.setState({
+                            MouseIsDown: true
+                        });
+                    }} onMouseLeave={() => {
+                        this.setState({
+                            MouseIsDown: false,
+                        })
+                    }} onMouseUp={() => {
+                        this.setState({
+                            MouseIsDown: false
+                        })
+                    }} onMouseMove={updateXY}>
+                </canvas>,
+            buffer: [...Array(50)]
+        });
+    }
     
     static propTypes = {
         title: PropTypes.string
@@ -66,16 +100,25 @@ class Etch_A extends React.Component {
     render() {
         return (
             <div id='etch_a' onClick={this.props.etch_clicked} 
-                style={{height: '100%', width: '80%', overflow: 'hidden'}} 
+                style={{height: '40vh', width: '80%', overflow: 'hidden'}} 
                 className='trans_x_center round_corn' >
-                
                 <div className='span_w' style={{background:'green', zIndex: -1}}>
                     <span className='inline_block' style={{textAlign:'center', width: 'inherit'}}>
-                        {this.props.title}
+                        {this.props.title} 
                     </span>
                 </div>
+                {this.state.Pad}
             </div>
         )
+    }
+
+    componentDidMount() {
+        
+        // if (!this.props.isTrack) {
+        //     this.setState({
+        //         Pad: <canvas></canvas>
+        //     });
+        // }
     }
 }
 

@@ -29,73 +29,17 @@ app.get('/hello', function(req, res) {   //hello for testing
 
 
 
+
+
 app.listen(4000)
 console.log('Server running at http://127.0.0.1:4000/')
 
 
+// //db
+// const redis = require('redis')
+// const conn = redis.createClient()
 
+// conn.on('error', err => {
+//     console.log('redis error ' + err)
+// })
 
-//db
-const redis = require('redis')
-const conn = redis.createClient()
-
-conn.on('error', err => {
-    console.log('redis error ' + err)
-})
-
-
-votes = ["ZMNAGUEDSJYLBOPHRQICWFXTVK"]
-dic = {}
-for (var i in votes[0]) 
-    dic[votes[0][i]] = (new Array(votes[0].length)).fill(0, 0, votes[0].length) //map skips empty items?
-votes.forEach(e => {
-    for (var i in e) dic[e[i]][i]++
-})
-
-
-console.log(dic['Z'] + '')
-// for (var i in votes[0])
-//     console.log(dic[votes[0][i]])
-
-console.log(votes[0].split('').sort((a, b) => {
-    // if (!(dic[a] > dic[b]) && !(dic[a] < dic[b])) 
-    //     return a > b
-    return dic[a].join('') < dic[b].join('')
-}).join(''))
-
-
-
-function copy(o) {
-    var res = {}
-    for (var k in o) {
-        
-        if (typeof o[k] == 'object' || Array.isArray(o[k]) && (!o[k] instanceof Function)) {
-            res[k] = copy(o[k]);
-        } 
-        else
-            res[k] = o[k];
-    }
-
-    return res;
-}
-
-
-var root = {}
-
-function bsort(elem, root) {
-    if(root.val == undefined) {
-        root.val = elem
-        root.left = {}
-        root.right = {}
-    }
-    if (elem < root.val) 
-        bsort(val, root.left)
-    else if (elem > root.val)
-        bsort(val, root.right)   
-}
-
-arr = [3,5,6,7,2,10]
-
-for (var d in arr) {
-    bsort(d, root);
-}

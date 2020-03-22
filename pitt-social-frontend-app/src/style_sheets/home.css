@@ -35,10 +35,20 @@ p > p {
 }
 
 p {
-    text-indent: 3em;
-    color: greenyellow;
     margin: 0;
     line-height: 200%;
+    text-indent: 3em;
+    color: greenyellow;
+}
+
+/* margin collapsing */
+ul > li{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+span {
+    border: 1px dashed white;
 }
 
 
