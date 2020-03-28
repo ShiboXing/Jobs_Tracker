@@ -84,3 +84,8 @@ p {
 * {
     font-size-adjust: auto;
 }
+
+a {
+    color: pink;
+}
+

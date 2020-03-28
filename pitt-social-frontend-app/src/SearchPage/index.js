@@ -22,16 +22,6 @@ class SearchObject extends React.Component {
         super(props)
 
         let activateDraw = node => {
-            
-            let blob = {
-                x: 30,
-                y: 30,
-                radius: 30,
-                start_deg: 0,
-                end_deg: 2 * Math.PI
-            }
-
-            this.blob = blob
 
             this.ctx = node.getContext('2d')
             // this.ctx.arc(blob.x, blob.y, blob.radius, blob.start_deg, blob.end_deg)
@@ -41,10 +31,6 @@ class SearchObject extends React.Component {
             circle.make_circle()
             circle.tremble()
         } 
-
-        this.updateCanvas = () => {
-            
-        }
 
         this.activateCanvas = <canvas className='absolute' ref={e => activateDraw(e)}></canvas>
         

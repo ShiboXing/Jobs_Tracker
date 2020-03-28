@@ -19,3 +19,20 @@ span {
     color: white;
     margin: 0;
 }
+
+div.show_urself:hover::before {
+    position: absolute;
+    margin-top: -2em;
+    color: white;
+    content: '你好';
+}
+
+a {
+    display: block;
+}
+
+a + a:nth-of-type(2) {
+    color: lightblue;
+    margin-bottom: 3em;
+    height: 3em;
+}
