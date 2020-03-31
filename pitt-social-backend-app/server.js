@@ -9,7 +9,6 @@ var registerRouter = require('./routes/register').router
 
 app.use(cors())
 app.use(express.json())
-
  
 //specify the cors options to only accept cors requests from port 3000
 app.all('*', function (req, res, next) {
@@ -26,10 +25,6 @@ app.get('/hello', function(req, res) {   //hello for testing
 	console.log('received GET on /hello')
 	res.send({'msg':'hello back'})
 })
-
-
-
-
 
 app.listen(4000)
 console.log('Server running at http://127.0.0.1:4000/')

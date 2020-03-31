@@ -91,8 +91,6 @@ class Etch_A extends React.Component {
     constructor(props) {
         super(props);
 
-        
-
         let fetchCtx = (function(e) {
             console.log(e);
             this.padCtx = e.getContext('2d');

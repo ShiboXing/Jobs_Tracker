@@ -1,0 +1,93 @@
+$show-border: thick dashed white;
+$grad-bg: linear-gradient(black, grey);
+
+div {
+    margin: 0;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline_block {
+    display: inline-block;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.table {
+    display: table;
+}
+ 
+.trans_x_center {
+    left: 50%;
+    transform: translateX(-50%);
+} 
+
+.half_w {
+    width: 50%;
+}
+
+.span_w {
+    width: 100%;
+}
+
+.span_h {
+    height: 100%;
+}
+
+
+/* to re-adjust the left dots or indices */
+ul, ol {
+    display: inline-block;
+    transform: translateX(100%);
+}
+
+ul:only-of-type {
+    font-size: 0.7rem;
+}
+
+ol:only-of-type {
+    font-size: 1.5rem;
+}
+
+table {
+    align-content: center;
+}
+
+li:last-child {
+    text-transform: lowercase;
+}
+
+.round_corn {
+    border-radius: 10%;
+}
+
+.show_urself {
+    border: $show-border;
+    background-color: hotpink;
+}
+
+p { 
+    font-family: 'blabla';
+}
+
+@font-face {
+    font-family: 'blabla';
+    font-weight: normal;
+    src: local('Arial');
+}
+
+* {
+    font-size-adjust: auto;
+}
+
+a {
+    color: pink;
+}
