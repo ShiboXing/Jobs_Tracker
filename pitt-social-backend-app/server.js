@@ -38,3 +38,38 @@ console.log('Server running at http://127.0.0.1:4000/')
 //     console.log('redis error ' + err)
 // })
 
+
+
+
+// @author: Shibo Xing
+
+function myBind(obj) {
+    var func = this;
+    func.prototype = obj;
+    var args1 = [];
+    for (let arg in arguments)
+        args1.push(arguments[arg]);
+    args1.shift();
+
+    return function() {
+        var new_obj = {};
+        new_obj.__proto__ = obj;
+        new_obj['bound'] = func;
+        var args2 = [];
+        for (let i in arguments) 
+            args2.push(arguments[i]);
+        return new_obj.bound(...args1.concat(args2));
+    }
+}
+
+function parent(a, b, c) {
+    console.log(`parent says ${a} ${b} ${c}`);
+    
+    return this.word;
+}
+
+Function.prototype['myBind'] = myBind;
+
+var newP = parent.myBind({word: 'bubu'}, 1)
+console.log(newP(2, 5));
+

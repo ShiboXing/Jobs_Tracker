@@ -1,38 +1,35 @@
-tr > td {
-    height: 50%;
+p, span {
+  color: white;
 }
 
-#etch_a {
-    background-color: grey;
-    
-}
-
-h4 { 
-    color: white
-}
-
-.half_grid {
-    grid-template-areas: 'blk1 blk2';
-}
-
-span { 
-    color: white;
-    margin: 0;
-}
-
-div.show_urself:hover::before {
-    position: absolute;
-    margin-top: -2em;
-    color: white;
-    content: '你好';
+div#etch_a > span {
+  line-height: 1em;
+  text-align: center;
+  top: 50%;
 }
 
 a {
-    display: block;
+  display: block;
 }
 
 a + a:nth-of-type(2) {
-    color: lightblue;
-    margin-bottom: 3em;
-    height: 3em;
+  margin-bottom: 2em;
 }
+
+a + div:last-of-type {
+  box-sizing: content-box;
+  width: 10em;
+  height: 10em;
+  border-top: 5em solid blue;
+  border-bottom: 5em solid white;
+  border-right: 5em solid red;
+  border-left: 5em solid green;
+}
+
+#dragbox {
+  height: 5rem;
+  width: 5rem;
+  background: lightblue;
+}
+
+/*# sourceMappingURL=httpPage.css.map */

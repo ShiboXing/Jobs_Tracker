@@ -2,23 +2,7 @@ const React = require('react');
 const PropTypes = require('prop-types');
 require('../style_sheets/httpPage.css');
 const Component = require('react');
-import {createStore} from 'redux';
-
-
-function counter(state = 0, action) {
-    switch (action.type) {
-        case 'INCREMENT':
-            return state + 1;
-        case 'DECREMENT':
-            return state - 1;
-        default:
-            return state;
-    }
-}
-
-let store = createStore(counter)
-store.subscribe(() => console.log(store.getState()))
-
+import $ from 'jquery';
 
 
 class Mainbody extends React.Component {
@@ -71,6 +55,7 @@ class Mainbody extends React.Component {
                     <a href='http://google.com'> LOOK AT ME</a>
                     <a href='http://google.com'> LOOK AT ME</a>
                     <a href='http://google.com'> LOOK AT ME</a>
+                    <div>123123123</div>
                 </div>
             </div>
             
@@ -92,14 +77,20 @@ class Etch_A extends React.Component {
         super(props);
 
         let fetchCtx = (function(e) {
-            console.log(e);
             this.padCtx = e.getContext('2d');
             this.padCtx.beginPath();
-            
         }).bind(this);
-
+        this.state = {};
         // assign state directly before component is mounted
-        this.state = ({
+        var sts = {
+            clickTimes: 0,
+            canDrag: false,
+            dragLeft: 0, 
+            dragTop: 0
+        };
+        for (var prop in sts) this.state[prop] = sts[prop];
+
+        var sts = {
             Pad: <canvas ref={fetchCtx} className='span_w span_h' style={{background: 'DimGray'}} onMouseDown={() => {
                         this.setState({
                             MouseIsDown: true
@@ -112,10 +103,18 @@ class Etch_A extends React.Component {
                         this.setState({
                             MouseIsDown: false
                         })
-                    }} onMouseMove={this.updateDrawPad}>
+                    }} onMouseMove={this.updateDrawPad.bind(this)} 
+                    onClick={this.updateNumberSpan.bind(this)} >
                 </canvas>,
-            buffer: [...Array(50)]
-        });
+            dragPad: <div id='dragbox' className='inline_block absolute' style={{left:0}}
+                ref = {e => {this.dragPadDom = e;}}
+                onMouseDown={e => { this.setState({canDrag: true}); }}
+                
+            ></div>
+        };
+        for (prop in sts) this.state[prop] = sts[prop];
+        
+
     }
     
     static propTypes = {
@@ -127,29 +126,44 @@ class Etch_A extends React.Component {
     }
 
     updateDrawPad(e) {
-        
         var ctx = this.padCtx;
-        
     }
+
+    updateNumberSpan(e) {
+        this.setState({
+            clickTimes: this.state.clickTimes + 1
+        });
+    }
+
+    componentDidMount() {
+        console.log(this.state.dragPad);
+    }
+
+
 
     render() {
         return (
             <div id='etch_a' onClick={this.props.etch_clicked} 
                 style={{height: '40vh', width: '80%', overflow: 'hidden'}} 
-                className='trans_x_center round_corn' >
+                className='trans_x_center round_corn'
+                onMouseMove={e => { 
+                    if (this.state.canDrag) {
+                        console.log(e.nativeEvent.offsetX);
+                        this.dragPadDom.style.left = e.nativeEvent.offsetX + 'px';
+                    }
+                }} >
                 <div className='span_w' style={{background:'green', zIndex: -1}}> 
                     <span ref='_span' className='inline_block' style={{textAlign:'center', width: 'inherit'}}>
                         {this.props.title} 
                     </span>
                 </div>
                 {this.state.Pad}
+                {this.state.dragPad}
+               <span className='absolute trans_x_center span_w' color='white'>{this.state.clickTimes}</span>
             </div>
         )
     }
 
-    componentDidMount() {
-        
-    }
 }
 
 
