@@ -18,7 +18,6 @@ app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT'); //允许的请求方法
     res.header('Access-Control-Allow-Credentials',true);  //允许携带cookies
     next();
-    console.log(req);
 })
 
 app.use('/profile', profileRouter);

@@ -116,13 +116,16 @@ class Etch_A extends React.Component {
             dragPad: <div id='dragbox' className='inline_block absolute' style={{left:0}}
                 ref = {e => {this.dragPadDom = e;}}
                 onMouseDown={e => {
-                    this.Xpos = e.nativeEvent.screenX;
-                    this.Ypos = e.nativeEvent.screenY;
-                    this.leftPos = this.dragPadDom.style.left.replace(/px/, '');
-                    this.topPos = this.dragPadDom.style.top.replace(/px/, '');
-                    this.setState({ canDrag: true}); }}
+                    //draggable only if it is controller pad
+                    if (this.props.isTrack) {
+                        this.Xpos = e.nativeEvent.screenX;
+                        this.Ypos = e.nativeEvent.screenY;
+                        this.leftPos = this.dragPadDom.style.left.replace(/px/, '');
+                        this.topPos = this.dragPadDom.style.top.replace(/px/, '');
+                        this.setState({ canDrag: true}); }}
+                    }
                 onMouseUp={e => {
-                    //update coordinates 
+                    //mouse has been released 
                     this.setState({
                         canDrag: false
                     });
@@ -164,6 +167,8 @@ class Etch_A extends React.Component {
                         let dy = e.nativeEvent.screenY - this.Ypos; 
                         this.dragPadDom.style.left = +this.leftPos + dx + 'px';
                         this.dragPadDom.style.top = +this.topPos + dy + 'px';
+                        this.currLeftPos = this.dragPadDom.style.left.replace(/px/, '');
+                        this.currTopPos = this.dragPadDom.style.top.replace(/px/, '');
                     }
                 }}>
                 <div className='span_w' style={{background:'green', zIndex: -1}}> 
@@ -179,22 +184,39 @@ class Etch_A extends React.Component {
     }
 
     componentDidUpdate(pProps, pStates) {
-        var promise = new Promise(
-            function(res, rej) {
-                var xhr = new XMLHttpRequest();
-                xhr.open('GET', 'http://localhost:4000/http');
-                xhr.onreadystatechange = () => {
-                    console.log(this.response);
-                }
-                xhr.responseType = 'json'
-                xhr.setRequestHeader({
-                    Accept: 'application/json'
-                });
-                xhr.send();
-            }
-        );        
-    }
+        if (this.props.isTrack) {
+            var promise = new Promise(
+                (function(res, rej) {
 
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'http://localhost:4000/http');
+                    
+                    xhr.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            res(this.response);
+                        }
+                    }
+                    xhr.responseType = 'json';
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.setRequestHeader('Accept', 'application/json');
+                    xhr.setRequestHeader('Content-Length', JSON.stringify({
+                        left: this.state.leftPos,
+                        top: this.state.topPos
+                    }).length);
+
+                    xhr.send(JSON.stringify({
+                        left: this.currLeftPos,
+                        top: this.currTopPos
+                    }));
+                }).bind(this)
+            );
+
+            promise.then((res) => {
+                //do redux updating 
+                console.log(res);
+            }, null).catch(e => console.log('ERROR CAUGHT! \n\r' + e));
+        }        
+    }
 }
 
 
