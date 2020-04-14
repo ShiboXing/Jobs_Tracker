@@ -1,9 +1,16 @@
 const React = require('react');
 const PropTypes = require('prop-types');
-require('../style_sheets/httpPage.css');
-const Component = require('react');
-import $ from 'jquery';
+import '../style_sheets/httpPage.css';
+// import createStore from 'redux';
 
+// const store = createStore();
+// const state = store.getState();
+// function addMoveBox(num){
+//     return {
+//         type: 'MOVE_BOX',
+//         num
+//     }
+// }
 
 class Mainbody extends React.Component {
 
@@ -86,7 +93,7 @@ class Etch_A extends React.Component {
             clickTimes: 0,
             canDrag: false,
             dragLeft: 0, 
-            dragTop: 0
+            dragTop: 0,
         };
         for (var prop in sts) this.state[prop] = sts[prop];
 
@@ -108,8 +115,18 @@ class Etch_A extends React.Component {
                 </canvas>,
             dragPad: <div id='dragbox' className='inline_block absolute' style={{left:0}}
                 ref = {e => {this.dragPadDom = e;}}
-                onMouseDown={e => { this.setState({canDrag: true}); }}
-                
+                onMouseDown={e => {
+                    this.Xpos = e.nativeEvent.screenX;
+                    this.Ypos = e.nativeEvent.screenY;
+                    this.leftPos = this.dragPadDom.style.left.replace(/px/, '');
+                    this.topPos = this.dragPadDom.style.top.replace(/px/, '');
+                    this.setState({ canDrag: true}); }}
+                onMouseUp={e => {
+                    //update coordinates 
+                    this.setState({
+                        canDrag: false
+                    });
+                }}
             ></div>
         };
         for (prop in sts) this.state[prop] = sts[prop];
@@ -135,23 +152,20 @@ class Etch_A extends React.Component {
         });
     }
 
-    componentDidMount() {
-        console.log(this.state.dragPad);
-    }
-
-
-
     render() {
         return (
             <div id='etch_a' onClick={this.props.etch_clicked} 
                 style={{height: '40vh', width: '80%', overflow: 'hidden'}} 
                 className='trans_x_center round_corn'
                 onMouseMove={e => { 
+                    //re-render
                     if (this.state.canDrag) {
-                        console.log(e.nativeEvent.offsetX);
-                        this.dragPadDom.style.left = e.nativeEvent.offsetX + 'px';
+                        let dx = e.nativeEvent.screenX - this.Xpos;
+                        let dy = e.nativeEvent.screenY - this.Ypos; 
+                        this.dragPadDom.style.left = +this.leftPos + dx + 'px';
+                        this.dragPadDom.style.top = +this.topPos + dy + 'px';
                     }
-                }} >
+                }}>
                 <div className='span_w' style={{background:'green', zIndex: -1}}> 
                     <span ref='_span' className='inline_block' style={{textAlign:'center', width: 'inherit'}}>
                         {this.props.title} 
@@ -162,6 +176,23 @@ class Etch_A extends React.Component {
                <span className='absolute trans_x_center span_w' color='white'>{this.state.clickTimes}</span>
             </div>
         )
+    }
+
+    componentDidUpdate(pProps, pStates) {
+        var promise = new Promise(
+            function(res, rej) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'http://localhost:4000/http');
+                xhr.onreadystatechange = () => {
+                    console.log(this.response);
+                }
+                xhr.responseType = 'json'
+                xhr.setRequestHeader({
+                    Accept: 'application/json'
+                });
+                xhr.send();
+            }
+        );        
     }
 
 }
